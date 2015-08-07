@@ -4,23 +4,26 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:cal="http://www.caliburnproject.org"
+             xmlns:Dialog="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
+             Dialog:DialogParticipation.Register="{Binding}"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="300" d:DesignWidth="500">
+    
     <Grid  Background="#DDD">
         <StackPanel>
-            <TextBlock Text="Screen 2"
-                   VerticalAlignment="Center"
+            <TextBlock Text="Screen 2 - Window activation and deactivation; Modal and Non-Modal child windows"
+                   VerticalAlignment="Center" TextWrapping="Wrap"
                    HorizontalAlignment="Center"
-                   FontSize="20" />
+                   FontSize="20" Margin="0 0 0 20"/>
+            
             <Button Width="200" Content="Show Non-Modal Peer Window" 
                     cal:Message.Attach="[Event Click] = [Action ShowWindow()]"
                     Style="{StaticResource AccentedSquareButtonStyle}" Margin="0 0 0 5"/>
+            
             <Button Width="200" Content="Show Modal Child Window" 
                     cal:Message.Attach="[Event Click] = [Action ShowModalDialogWindow($view)]"
                     Style="{StaticResource AccentedSquareButtonStyle}" Margin="0 0 0 5"/>
-            <!--<Button  Width="200" Content="Show Child Window Modal" Style="{StaticResource AccentedSquareButtonStyle}" Margin="0 0 0 5"/>-->
-
-
+          
         </StackPanel>
 
         <ContentControl x:Name="ActiveItem" Margin="5"/>

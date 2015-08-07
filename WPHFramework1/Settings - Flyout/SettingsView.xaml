@@ -7,6 +7,11 @@
              Width="300"
              d:DesignHeight="700" d:DesignWidth="300">
     <Grid>
+        <TextBlock Text="Example of a Flyout"
+                   VerticalAlignment="Top"
+                   HorizontalAlignment="Center"
+                   FontSize="20" />
+
         <TextBlock Text="{Binding Text}"
                    VerticalAlignment="Center"
                    HorizontalAlignment="Center"

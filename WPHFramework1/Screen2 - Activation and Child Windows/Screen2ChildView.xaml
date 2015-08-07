@@ -6,7 +6,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
              Height="300" Width="500"
-            WindowStartupLocation="CenterOwner"
+            WindowStartupLocation="CenterScreen"
                       ShowCloseButton="False"
                       ShowMaxRestoreButton="False"
                       ShowMinButton="False"
@@ -16,7 +16,11 @@
              <TextBlock Text="Child of Screen 2"
                    VerticalAlignment="Center"
                    HorizontalAlignment="Center"
-                   FontSize="20" />
+                   FontSize="20" Margin="0 0 0 20" />
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 0 0 20">
+                <TextBlock Text="Enter Something: " VerticalAlignment="Center" />
+                <TextBox x:Name="SomeValue" Width="100" Height="24"/>
+            </StackPanel>
             <Button x:Name="Close" Content="Close Me" Width="100" Style="{StaticResource AccentedSquareButtonStyle}"/>
         </StackPanel>
        

@@ -16,7 +16,7 @@ namespace WPHFramework1
             _eventAggr = ea;
             Header = "Settings";
             Position = Position.Right;
-            Text = "Settings go here";
+            Text = "Settings would go here.";
 
         }
 
