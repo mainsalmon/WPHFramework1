@@ -9,6 +9,7 @@ using System.Windows;
 using MahApps.Metro.Controls.Dialogs;
 using System.Windows.Controls;
 using System.Windows.Media;
+using System.Windows.Controls.Primitives;
 
 namespace WPHFramework1
 {
@@ -16,11 +17,13 @@ namespace WPHFramework1
     {
         private readonly IEventAggregator _eventAggregator;
         private readonly IDialogCoordinator _dialogCoordinator;
+        private readonly IWindowManager _windowManager;
 
-        public Screen2ViewModel(IEventAggregator eventAggregator, IDialogCoordinator dialogCoordinator)
+        public Screen2ViewModel(IEventAggregator eventAggregator, IDialogCoordinator dialogCoordinator, IWindowManager windowManager)
         {
             _eventAggregator = eventAggregator;// .Subscribe(this) is happening in activate
             _dialogCoordinator = dialogCoordinator;
+            _windowManager = windowManager;
         }
 
         #region Show Child Window
@@ -37,17 +40,25 @@ namespace WPHFramework1
             return testWindow;
         }
 
-        public void ShowChildWindow(Screen2View view)
-        {
-            //var w = this.GetTestWindow(view);
-            //w.Content = new TextBlock() { Text = "MetroWindow with a Border", FontSize = 28, FontWeight = FontWeights.Light, VerticalAlignment = VerticalAlignment.Center, HorizontalAlignment = HorizontalAlignment.Center };
-            //w.BorderThickness = new Thickness(1);
-            //w.GlowBrush = null;
-            //w.BorderBrush = view.FindResource("AccentColorBrush") as Brush;
-            //w.Show();
-
+         public void ShowWindow()
+         {
+             // shows non-modal child form (can now close the main form, but app stays up until child is closed)
+            var window = new Screen2ChildViewModel();
+           
+             _windowManager.ShowWindow(window);
          
-            ActivateItem(new Screen2ChildViewModel());
+             // It has no owner so centerowner must be changed to centerscreenWindowStartupLocation.CenterScreen
+         }
+
+        public void ShowModalDialogWindow(Screen2View view)
+        {
+            // shows child form modally
+            bool? rslt = _windowManager.ShowDialog(new Screen2ChildViewModel());
+            if (rslt != null)
+            {
+                // TODO: how to control rslt true/false from Screen2ChildViewModel?
+            }
+            
         
         }
 

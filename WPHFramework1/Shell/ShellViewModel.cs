@@ -6,12 +6,13 @@ namespace WPHFramework1 {
 
     public class ShellViewModel : Conductor<object>, IShell
     {
-        public ShellViewModel(IEventAggregator ea)
+        public ShellViewModel(IEventAggregator ea,  IWindowManager wm)
         {
+            _windowManager = wm;
             _eventAggr = ea;
             DisplayName = "WH Framework";
         }
-
+        IWindowManager _windowManager;
         IEventAggregator _eventAggr;
 
         private SettingsViewModel _settingVM ;
@@ -42,7 +43,7 @@ namespace WPHFramework1 {
 
         public void ShowScreen2()
         {
-            ActivateItem(new Screen2ViewModel(_eventAggr, DialogCoordinator.Instance));
+            ActivateItem(new Screen2ViewModel(_eventAggr, DialogCoordinator.Instance, _windowManager));
             RefreshButtonGuards();
         }
 

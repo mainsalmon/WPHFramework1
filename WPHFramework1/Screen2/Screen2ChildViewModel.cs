@@ -12,6 +12,7 @@ namespace WPHFramework1
         protected override void OnInitialize()
         {
             base.OnInitialize();
+            DisplayName = "Child Form Launched from Screen 2";
         }
     }
 }
