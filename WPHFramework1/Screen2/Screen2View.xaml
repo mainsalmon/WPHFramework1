@@ -20,5 +20,7 @@
 
 
         </StackPanel>
+
+        <ContentControl x:Name="ActiveItem" Margin="5"/>
     </Grid>
 </UserControl>

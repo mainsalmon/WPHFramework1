@@ -9,8 +9,7 @@
         GlowBrush="{DynamicResource AccentColorBrush}"
         ResizeMode="CanResizeWithGrip"
         RightWindowCommandsOverlayBehavior="Never"
-        WindowButtonCommandsOverlayBehavior="Never" 
-                      
+        WindowButtonCommandsOverlayBehavior="Never"                
         >
 
     <Controls:MetroWindow.RightWindowCommands >
@@ -36,18 +35,13 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0" Orientation="Horizontal" >
-            <StackPanel.Resources>
-                <ResourceDictionary>
-                    <ResourceDictionary.MergedDictionaries>
-                        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/FlatButton.xaml" />
-                    </ResourceDictionary.MergedDictionaries>
-                </ResourceDictionary>
-            </StackPanel.Resources>
-
-            <Button x:Name="ShowScreen1" Content="Screen1" />
-            <Button x:Name="ShowScreen2" Content="Screen2"/>
-        </StackPanel>
+        
+        <Menu Grid.Row="0">
+            <MenuItem Header="Screen 1" x:Name="ShowScreen1" />
+            <MenuItem Header="Screen 2" x:Name="ShowScreen2" />
+            <MenuItem Header="Screen 3" x:Name="ShowScreen3" />
+        </Menu>
+        
         <ContentControl Grid.Row="1"  x:Name="ActiveItem" Margin="5"/>
     </Grid>
 

@@ -13,7 +13,6 @@ namespace WPHFramework1 {
         }
 
         IEventAggregator _eventAggr;
-     //   IDialogCoordinator _dialogCoord;
 
         private SettingsViewModel _settingVM ;
         public SettingsViewModel SettingsVM
@@ -24,6 +23,7 @@ namespace WPHFramework1 {
         protected override void OnInitialize(){
             base.OnInitialize();
             _settingVM = new SettingsViewModel(_eventAggr);
+            ShowScreen1(); // Default
         }
 
         public void ShowSettingsFlyout(ShellView view)
@@ -32,11 +32,7 @@ namespace WPHFramework1 {
             flyout.IsOpen = !flyout.IsOpen;
         }
 
-        public void ShowScreen2()
-        {
-            ActivateItem(new Screen2ViewModel(_eventAggr, DialogCoordinator.Instance));
-            RefreshButtonGuards();
-        }
+     
 
         public void ShowScreen1()
         {
@@ -44,10 +40,24 @@ namespace WPHFramework1 {
             RefreshButtonGuards();
         }
 
+        public void ShowScreen2()
+        {
+            ActivateItem(new Screen2ViewModel(_eventAggr, DialogCoordinator.Instance));
+            RefreshButtonGuards();
+        }
+
+        public void ShowScreen3()
+        {
+            ActivateItem(new Screen3ViewModel());
+            RefreshButtonGuards();
+        }
+
+        #region Disable Menu Button if it's screen is current selection
         private void RefreshButtonGuards()
         {
             NotifyOfPropertyChange(() => CanShowScreen1);
             NotifyOfPropertyChange(() => CanShowScreen2);
+            NotifyOfPropertyChange(() => CanShowScreen3);
         }
 
         public bool CanShowScreen1
@@ -59,14 +69,12 @@ namespace WPHFramework1 {
         {
             get { return ActiveItem == null || ActiveItem.GetType() != typeof(Screen2ViewModel); }
         }
-        //private string _test = "XXXXXXX";
-        //public string Test
-        //{
-        //    get { return _test; }
-        //    set { _test = value;
-        //    NotifyOfPropertyChange(() => Test);
-        //    }
-        //}
-        
+
+        public bool CanShowScreen3
+        {
+            get { return ActiveItem == null || ActiveItem.GetType() != typeof(Screen3ViewModel); }
+        }
+
+        #endregion Disable Menu Button if it's screen is current selection
     }
 }

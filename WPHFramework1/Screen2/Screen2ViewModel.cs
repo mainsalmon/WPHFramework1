@@ -12,7 +12,7 @@ using System.Windows.Media;
 
 namespace WPHFramework1
 {
-    class Screen2ViewModel : Screen , IHandle<string> // string is for demo; use specific object type for specific message types
+    class Screen2ViewModel : Conductor<Screen> , IHandle<string>   // string message is for demo; use specific object type for specific message types
     {
         private readonly IEventAggregator _eventAggregator;
         private readonly IDialogCoordinator _dialogCoordinator;
@@ -45,6 +45,10 @@ namespace WPHFramework1
             //w.GlowBrush = null;
             //w.BorderBrush = view.FindResource("AccentColorBrush") as Brush;
             //w.Show();
+
+         
+            ActivateItem(new Screen2ChildViewModel());
+        
         }
 
         #endregion Show Child Window
@@ -74,9 +78,14 @@ namespace WPHFramework1
 
         protected override void OnDeactivate(bool close)
         {
-            _eventAggregator.Unsubscribe(this);
+           // If the app is not closing, then show dialog
+            if ( Application.Current.MainWindow != null)
+            {
                 // TODO: switch this to child screen
-            MessageBox.Show("Screen Two DeActivated"); //Don't do this in a real VM.
+                MessageBox.Show("Screen Two DeActivated"); //Don't do this in a real VM.
+            }
+           
+            _eventAggregator.Unsubscribe(this);
             base.OnDeactivate(close);
         }
 
