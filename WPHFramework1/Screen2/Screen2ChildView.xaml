@@ -7,11 +7,19 @@
              mc:Ignorable="d" 
              Height="300" Width="500"
             WindowStartupLocation="CenterOwner"
+                      ShowCloseButton="False"
+                      ShowMaxRestoreButton="False"
+                      ShowMinButton="False"
             >
     <Grid Background="Red">
-        <TextBlock Text="Child of Screen 2"
+        <StackPanel>
+             <TextBlock Text="Child of Screen 2"
                    VerticalAlignment="Center"
                    HorizontalAlignment="Center"
                    FontSize="20" />
+            <Button x:Name="Close" Content="Close Me" Width="100" Style="{StaticResource AccentedSquareButtonStyle}"/>
+        </StackPanel>
+       
+        
     </Grid>
 </Controls:MetroWindow>

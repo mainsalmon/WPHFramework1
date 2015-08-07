@@ -14,5 +14,10 @@ namespace WPHFramework1
             base.OnInitialize();
             DisplayName = "Child Form Launched from Screen 2";
         }
+
+        public void Close()
+        {
+            TryClose();
+        }
     }
 }
