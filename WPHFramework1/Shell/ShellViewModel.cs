@@ -1,6 +1,7 @@
 namespace WPHFramework1 {
 
     using Caliburn.Micro;
+    using MahApps.Metro.Controls.Dialogs;
     using System.Collections.ObjectModel;
 
     public class ShellViewModel : Conductor<object>, IShell
@@ -12,6 +13,7 @@ namespace WPHFramework1 {
         }
 
         IEventAggregator _eventAggr;
+     //   IDialogCoordinator _dialogCoord;
 
         private SettingsViewModel _settingVM ;
         public SettingsViewModel SettingsVM
@@ -32,13 +34,13 @@ namespace WPHFramework1 {
 
         public void ShowScreen2()
         {
-            ActivateItem(new Screen2ViewModel(_eventAggr));
+            ActivateItem(new Screen2ViewModel(_eventAggr, DialogCoordinator.Instance));
             RefreshButtonGuards();
         }
 
         public void ShowScreen1()
         {
-            ActivateItem(new Screen1ViewModel());
+            ActivateItem(new Screen1ViewModel(DialogCoordinator.Instance));
             RefreshButtonGuards();
         }
 

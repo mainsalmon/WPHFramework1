@@ -9,7 +9,8 @@
         GlowBrush="{DynamicResource AccentColorBrush}"
         ResizeMode="CanResizeWithGrip"
         RightWindowCommandsOverlayBehavior="Never"
-        WindowButtonCommandsOverlayBehavior="Never"          
+        WindowButtonCommandsOverlayBehavior="Never" 
+                      
         >
 
     <Controls:MetroWindow.RightWindowCommands >
@@ -47,12 +48,7 @@
             <Button x:Name="ShowScreen1" Content="Screen1" />
             <Button x:Name="ShowScreen2" Content="Screen2"/>
         </StackPanel>
-        <!--<TextBlock x:Name="Test"
-                   VerticalAlignment="Center"
-                   HorizontalAlignment="Center"
-                   FontSize="20" />-->
         <ContentControl Grid.Row="1"  x:Name="ActiveItem" Margin="5"/>
     </Grid>
-
 
 </Controls:MetroWindow>

@@ -2,13 +2,23 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:cal="http://www.caliburnproject.org"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
-        <TextBlock Text="Screen 2"
+    <Grid  Background="#DDD">
+        <StackPanel>
+            <TextBlock Text="Screen 2"
                    VerticalAlignment="Center"
                    HorizontalAlignment="Center"
                    FontSize="20" />
+            <Button Width="150" Content="Show Child Window" 
+                    cal:Message.Attach="[Event Click] = [Action ShowChildWindow($view)]"
+                    Style="{StaticResource AccentedSquareButtonStyle}" Margin="0 0 0 5"/>
+
+            <Button  Width="150" Content="Show Child Window Modal" Style="{StaticResource AccentedSquareButtonStyle}" Margin="0 0 0 5"/>
+
+
+        </StackPanel>
     </Grid>
 </UserControl>
