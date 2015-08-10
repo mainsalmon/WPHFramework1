@@ -1,0 +1,67 @@
+﻿<UserControl x:Class="WPHFramework1.Screen6View"
+             xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="700" d:DesignWidth="900">
+    
+    <UserControl.Resources>
+        <Style x:Key="LargeTileStyle" TargetType="Controls:Tile">
+            <Setter Property="Width" Value="300" />
+            <Setter Property="Height" Value="125" />
+            <Setter Property="TitleFontSize" Value="10" />
+        </Style>
+
+        <Style x:Key="SmallTileStyle" TargetType="Controls:Tile">
+            <Setter Property="Width" Value="147" />
+            <Setter Property="Height" Value="125" />
+            <Setter Property="TitleFontSize" Value="10" />
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+         <TextBlock Grid.Row="0"  Text="Screen 6 - Tile Menu"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"
+                   FontSize="20" Margin="0 0 0 20"/>
+
+        <Grid Grid.Row="1"  >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="27*"/>
+                <ColumnDefinition Width="430*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="83*"/>
+                <RowDefinition Height="259*"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Column="1"
+                   VerticalAlignment="Center"
+                   Text="Menu"
+                   FontWeight="Light"
+                   Foreground="Black"
+                   FontSize="30"
+                   FontFamily="Segoe UI" />
+
+            <WrapPanel Grid.Row="1" Grid.Column="1"  HorizontalAlignment="Left" VerticalAlignment="Top" >
+                <Controls:Tile Title="Tasks" Style="{StaticResource LargeTileStyle}" Content="Task List Here" Background="Teal" Margin="3"/>
+                <Controls:Tile Title="Desktop" Style="{StaticResource LargeTileStyle}"  Margin="3">
+                    <Controls:Tile.Background>
+                        <ImageBrush ImageSource="/Images/image1.PNG" />
+                    </Controls:Tile.Background>
+                </Controls:Tile>
+                <Controls:Tile Title="Employees" Style="{StaticResource LargeTileStyle}" Background="Green" x:Name="Employees" />
+                <Controls:Tile Title="Other" Style="{StaticResource LargeTileStyle}" Background="#D2691E" />
+                <Controls:Tile Title="Weather" Style="{StaticResource LargeTileStyle}" Background="#1E90FF" />
+                <Controls:Tile Title="Admin" Style="{StaticResource SmallTileStyle}" Background="#1E90FF" />
+                <Controls:Tile Title="Apps" Style="{StaticResource SmallTileStyle}" Background="Green" />
+            </WrapPanel>
+        </Grid>
+    </Grid >
+
+</UserControl>

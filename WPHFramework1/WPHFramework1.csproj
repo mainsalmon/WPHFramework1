@@ -104,6 +104,10 @@
     <Compile Include="Screen5 - Data Validation\Screen5View.xaml.cs">
       <DependentUpon>Screen5View.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Screen6 - Tile Menu\Screen6View.xaml.cs">
+      <DependentUpon>Screen6View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Screen6 - Tile Menu\Screen6ViewModel.cs" />
     <Compile Include="Settings - Flyout\SettingsView.xaml.cs">
       <DependentUpon>SettingsView.xaml</DependentUpon>
     </Compile>
@@ -139,6 +143,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Screen5 - Data Validation\Screen5View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Screen6 - Tile Menu\Screen6View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -181,6 +189,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Messages\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\image1.PNG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

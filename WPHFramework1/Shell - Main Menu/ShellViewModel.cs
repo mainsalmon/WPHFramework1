@@ -83,6 +83,12 @@ namespace WPHFramework1 {
             RefreshMenuButtonGuards();
         }
 
+        public void ShowScreen6()
+        {
+            ActivateItem(new Screen6ViewModel());
+            RefreshMenuButtonGuards();
+        }
+
         #endregion Show Screens
 
         #region Disable Menu Button if it's screen is current selection
@@ -94,6 +100,8 @@ namespace WPHFramework1 {
             NotifyOfPropertyChange(() => CanShowScreen3);
             NotifyOfPropertyChange(() => CanShowScreen4);
             NotifyOfPropertyChange(() => CanShowScreen5);
+            NotifyOfPropertyChange(() => CanShowScreen6);
+
         }
 
         public bool CanShowScreen1
@@ -119,6 +127,11 @@ namespace WPHFramework1 {
         public bool CanShowScreen5
         {
             get { return ActiveItem == null || ActiveItem.GetType() != typeof(Screen5ViewModel); }
+        }
+
+        public bool CanShowScreen6
+        {
+            get { return ActiveItem == null || ActiveItem.GetType() != typeof(Screen6ViewModel); }
         }
 
         #endregion Disable Menu Button if it's screen is current selection
