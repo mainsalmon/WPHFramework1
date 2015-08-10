@@ -24,5 +24,28 @@ namespace WPHFramework1
         {
             InitializeComponent();
         }
+        private void TextBox_ForceInteger(object sender, KeyEventArgs e)
+        {
+            bool isNumPadNumeric = (e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9); // || e.Key == Key.Decimal;
+            bool isNumeric = (e.Key >= Key.D0 && e.Key <= Key.D9);// || e.Key == Key.OemPeriod;
+
+            if ((isNumeric || isNumPadNumeric) && Keyboard.Modifiers != ModifierKeys.None)
+            {
+                e.Handled = true;
+                return;
+            }
+
+            bool isControl = ((Keyboard.Modifiers != ModifierKeys.None && Keyboard.Modifiers != ModifierKeys.Shift)
+                || e.Key == Key.Back || e.Key == Key.Delete || e.Key == Key.Insert
+                || e.Key == Key.Down || e.Key == Key.Left || e.Key == Key.Right || e.Key == Key.Up
+                || e.Key == Key.Tab
+                || e.Key == Key.PageDown || e.Key == Key.PageUp
+                || e.Key == Key.Enter || e.Key == Key.Return || e.Key == Key.Escape
+                || e.Key == Key.Home || e.Key == Key.End);
+
+            e.Handled = !isControl && !isNumeric && !isNumPadNumeric;
+        }
+
+     
     }
 }

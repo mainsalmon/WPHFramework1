@@ -46,6 +46,7 @@
       <HintPath>..\..\MahApps.Metro-master\MahApps.Metro\bin\Debug\NET45\MahApps.Metro.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Windows.Controls.DataVisualization.Toolkit, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Windows.Controls.DataVisualization.Toolkit.4.0.0.0\lib\net40-Client\System.Windows.Controls.DataVisualization.Toolkit.dll</HintPath>
@@ -74,6 +75,8 @@
     </ApplicationDefinition>
     <Compile Include="AppBootstrapper.cs" />
     <Compile Include="BaseClasses\FlyoutBaseViewModel.cs" />
+    <Compile Include="BaseClasses\ValidatingModelBase.cs" />
+    <Compile Include="Converters\FlipBooleanConverter.cs" />
     <Compile Include="Interfaces\IShell.cs" />
     <Compile Include="Screen1 - Dialogs\Screen1View.xaml.cs">
       <DependentUpon>Screen1View.xaml</DependentUpon>
@@ -96,6 +99,7 @@
       <DependentUpon>Screen4View.xaml</DependentUpon>
     </Compile>
     <Compile Include="Screen4 - Charting\Screen4ViewModel.cs" />
+    <Compile Include="DataModel\Person.cs" />
     <Compile Include="Screen5 - Data Validation\Screen5ViewModel.cs" />
     <Compile Include="Screen5 - Data Validation\Screen5View.xaml.cs">
       <DependentUpon>Screen5View.xaml</DependentUpon>

@@ -17,7 +17,10 @@
                 
                 <!-- Added Nuget package for toolkit.datavisualization (see references) -->
                 <!-- minimal example here http://www.c-sharpcorner.com/uploadfile/mahesh/bar-chart-in-wpf/ -->
-                <!-- Another alternative might be Metro Charts for Metro UI as shown here https://thusithamabotuwana.wordpress.com/2014/02/02/charting-with-wpf/ -->
+                
+                <!-- Another alternative might be Metro Charts for Metro UI as shown here:
+                http://blogs.msdn.com/b/torstenmandelkow/archive/2013/05/06/free-modernui-charts-for-wpf-windows-store-apps-und-silverlight-published.aspx
+                and some instructions here:  https://thusithamabotuwana.wordpress.com/2014/02/02/charting-with-wpf/  -->
                 <!--   but might need to goof around with the styling to look good with Mahapps -->
                 
                 <Grid DataContext="{Binding ChartData}" >
