@@ -3,17 +3,63 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-               xmlns:cal="http://www.caliburnproject.org"
+             xmlns:cal="http://www.caliburnproject.org"
+             xmlns:chartingToolkit="clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=System.Windows.Controls.DataVisualization.Toolkit"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="700" d:DesignWidth="900">
     <Grid>
         <Grid  Background="#DDD">
             <StackPanel>
                 <TextBlock Text="Screen 4 - Charting"
                    VerticalAlignment="Center" TextWrapping="Wrap"
                    HorizontalAlignment="Center"
-                   FontSize="20" Margin="0 0 0 20"/>
-               
+                   FontSize="20" Margin="0 0 0 0"/>
+                
+                <!-- Added Nuget package for toolkit.datavisualization (see references) -->
+                <!-- minimal example here http://www.c-sharpcorner.com/uploadfile/mahesh/bar-chart-in-wpf/ -->
+                <!-- Another alternative might be Metro Charts for Metro UI as shown here https://thusithamabotuwana.wordpress.com/2014/02/02/charting-with-wpf/ -->
+                <!--   but might need to goof around with the styling to look good with Mahapps -->
+                
+                <Grid DataContext="{Binding ChartData}" >
+
+                    <Grid >
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition  />
+                        </Grid.ColumnDefinitions>
+
+                        <chartingToolkit:Chart Grid.Row="0" Grid.Column="0" Margin="5"  Name="columnChart" Title="Column Series Demo"   >
+                            <chartingToolkit:ColumnSeries DependentValuePath="Value" IndependentValuePath="Key" ItemsSource="{Binding}" />
+                        </chartingToolkit:Chart>
+
+                        <chartingToolkit:Chart Grid.Row="0" Grid.Column="1" Margin="5" Name="pieChart" Title="Pie Series Demo" >
+                            <chartingToolkit:PieSeries DependentValuePath="Value"  IndependentValuePath="Key" ItemsSource="{Binding}" 
+                       IsSelectionEnabled="True" />
+                        </chartingToolkit:Chart>
+
+                        <chartingToolkit:Chart Grid.Row="1" Grid.Column="0" Margin="5" Name="areaChart" Title="Area Series Demo" 	>
+                            <chartingToolkit:AreaSeries DependentValuePath="Value"  IndependentValuePath="Key" ItemsSource="{Binding}" 
+		                IsSelectionEnabled="True"/>
+                        </chartingToolkit:Chart>
+
+                        <chartingToolkit:Chart Grid.Row="1" Grid.Column="1" Margin="5" Name="barChart" Title="Bar Series Demo"  >
+                            <chartingToolkit:BarSeries  DependentValuePath="Value" IndependentValuePath="Key" ItemsSource="{Binding}" 
+		                IsSelectionEnabled="True"/>
+                        </chartingToolkit:Chart>
+
+                        <chartingToolkit:Chart Grid.Row="2" Grid.Column="0" Margin="5" Name="lineChart" Title="Line Series Demo" >
+                            <chartingToolkit:LineSeries  DependentValuePath="Value" IndependentValuePath="Key" ItemsSource="{Binding}" 
+		                IsSelectionEnabled="True"/>
+                        </chartingToolkit:Chart>
+                    </Grid>
+
+                </Grid>
 
             </StackPanel>
 
