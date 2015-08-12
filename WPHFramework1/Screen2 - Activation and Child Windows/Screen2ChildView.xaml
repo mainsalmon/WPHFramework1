@@ -21,7 +21,7 @@
                 <TextBlock Text="Enter Something: " VerticalAlignment="Center" />
                 <TextBox x:Name="SomeValue" Width="100" Height="24"/>
             </StackPanel>
-            <Button x:Name="Close" Content="Close Me" Width="100" Style="{StaticResource AccentedSquareButtonStyle}"/>
+            <Button x:Name="CloseMe" Content="Close Me" Width="100" Style="{StaticResource AccentedSquareButtonStyle}"/>
         </StackPanel>
        
         

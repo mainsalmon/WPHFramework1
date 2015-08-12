@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Caliburn.Micro;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace WPHFramework1
 {
-    class Screen6ViewModel
+    public class Screen6ViewModel : PropertyChangedBase
     {
 
-        public void Employees()
-        {
+        //public void Employees()
+        //{
 
-        }
+        //}
     }
 }

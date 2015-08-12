@@ -8,7 +8,7 @@ using Caliburn.Micro;
 
 namespace WPHFramework1
 {
-    class Screen3ViewModel : Screen
+    public class Screen3ViewModel : Screen
     {
         protected override void OnInitialize()
         {

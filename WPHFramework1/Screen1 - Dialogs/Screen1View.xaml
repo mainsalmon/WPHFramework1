@@ -17,12 +17,12 @@
                    FontSize="20" Margin="0 0 0 20" />
             
             <Button x:Name="ShowMsgDialog" Width="150" Content="Show Message Dialog" Style="{StaticResource AccentedSquareButtonStyle}" Margin="0 0 0 5"/>
-            <Button x:Name="ShowCustomTimedDialog" Width="150" Content="Show Timed Dialog" Style="{StaticResource AccentedSquareButtonStyle}" Margin="0 0 0 5"/>
+            <Button x:Name="ShowTimedDialog" Width="150" Content="Show Timed Dialog" Style="{StaticResource AccentedSquareButtonStyle}" Margin="0 0 0 5"/>
             <Button x:Name="ShowCustomQuestionDialog" Width="150" Content="Show Question Dialog" Style="{StaticResource AccentedSquareButtonStyle}" Margin="0 0 0 5"/>
             <Button x:Name="ShowInputDialog" Width="150" Content="Show Input Dialog" Style="{StaticResource AccentedSquareButtonStyle}" Margin="0 0 0 5"/>
             <Button x:Name="ShowProgressDialog" Width="150" Content="Show Progress Dialog" Style="{StaticResource AccentedSquareButtonStyle}" Margin="0 0 0 5"/>
             <Button x:Name="ShowLoginDialog" Width="150" Content="Show Login Dialog" Style="{StaticResource AccentedSquareButtonStyle}" Margin="0 0 0 5"/>
-
+            <TextBlock Text="Results from each dialog are handled in Screen1ViewModel" HorizontalAlignment="Center" Margin="0 10 0 0"/>
         </StackPanel>
     </Grid>
 </UserControl>

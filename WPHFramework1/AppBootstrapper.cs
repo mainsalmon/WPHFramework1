@@ -7,6 +7,7 @@ namespace WPHFramework1 {
     using System.Reflection;
     using System.Linq;
 
+    // SimpleIOC bootstrapper that comes as default with Caliburn.Micro
     public class AppBootstrapper : BootstrapperBase {
         SimpleContainer container;
 

@@ -7,9 +7,9 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary>
-                    <local:AppBootstrapper x:Key="bootstrapper" />
+                   <!--<local:AppBootstrapper x:Key="bootstrapper" />-->
+                    <local:MyAutofacBootstrapper x:Key="bootstrapper" />
                 </ResourceDictionary>
-
 
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
@@ -18,6 +18,12 @@
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseLight.xaml" />
                 <ResourceDictionary Source="Resources/LocalResources.xaml"/>
             </ResourceDictionary.MergedDictionaries>
+            
+            <!-- Commonly used converters -->
+            <local:BoolTrueToVisibilityConverter x:Key="BoolTrueToVis" />
+            <local:BoolFalseToVisibilityConverter x:Key="BoolFalseToVis" />
+            <local:EnumToBooleanConverter x:Key="EnumToBool" />
+            <local:FlipBooleanConverter x:Key="flipBool"/>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

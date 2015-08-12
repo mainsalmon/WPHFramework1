@@ -9,17 +9,18 @@ namespace WPHFramework1
 {
     public class Screen2ChildViewModel: Screen
     {
-        public Screen2ChildViewModel(string displayName)
-        {
-            DisplayName = displayName;
-        }
+        //public Screen2ChildViewModel(string displayName)
+        //{
+        //    DisplayName = displayName;
+        //}
+
         protected override void OnInitialize()
         {
             base.OnInitialize();
             
         }
 
-        public void Close()
+        public void CloseMe()
         {
             TryClose();
         }

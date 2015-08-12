@@ -14,17 +14,22 @@ using System.Dynamic;
 
 namespace WPHFramework1
 {
-    class Screen2ViewModel : Conductor<Screen>    // string message is for demo; use specific object type for specific message types
+    public class Screen2ViewModel : Conductor<Screen>    // string message is for demo; use specific object type for specific message types
     {
         private readonly IEventAggregator _eventAggregator;
-        private readonly IDialogCoordinator _dialogCoordinator;
+     //   private readonly IDialogCoordinator _dialogCoordinator;
         private readonly IWindowManager _windowManager;
+        Screen2ChildViewModel _screen2ChildVM;
 
-        public Screen2ViewModel(IEventAggregator eventAggregator, IDialogCoordinator dialogCoordinator, IWindowManager windowManager)
+        public Screen2ViewModel(IEventAggregator eventAggregator, 
+            IDialogCoordinator dialogCoordinator, 
+            IWindowManager windowManager,
+            Screen2ChildViewModel s2child)
         {
             _eventAggregator = eventAggregator;// .Subscribe(this) is happening in activate
-            _dialogCoordinator = dialogCoordinator;
+          //  _dialogCoordinator = dialogCoordinator;
             _windowManager = windowManager;
+            _screen2ChildVM = s2child;
         }
 
         #region Show Child Window
@@ -32,9 +37,10 @@ namespace WPHFramework1
          public void ShowWindow()
          {
              // shows non-modal child form (can now close the main form, but app stays up until child is closed)
-            var window = new Screen2ChildViewModel("Non Modal Child");
-           
-             _windowManager.ShowWindow(window);
+           // var window = new Screen2ChildViewModel("Non Modal Child");
+          //  _windowManager.ShowWindow(window);
+            _screen2ChildVM.DisplayName = "Non Modal Child";
+            _windowManager.ShowWindow(_screen2ChildVM);
          
              // It has no owner so centerowner must be changed to centerscreenWindowStartupLocation.CenterScreen
          }
@@ -47,14 +53,18 @@ namespace WPHFramework1
             settings.ResizeMode = ResizeMode.NoResize;
             settings.Width = 450;
            
-            Screen2ChildViewModel vm = new Screen2ChildViewModel("Modal Child");
-            _windowManager.ShowDialog(vm, null, settings);
+            //Screen2ChildViewModel vm = new Screen2ChildViewModel("Modal Child");
+            //_windowManager.ShowDialog(vm, null, settings);
+
+            _screen2ChildVM.DisplayName = "Modal Child";
+            _windowManager.ShowDialog(_screen2ChildVM, null, settings);
 
             // We don't really need to use this as a dialog, just as a modal child form.
             // See Screen 1 for Mahapps dialogs which have all the build-in goodness.
             
             // Values of vm that have been set via the dialog are available here:
-            var x = vm.SomeValue;
+            //var x = vm.SomeValue;
+            var x = _screen2ChildVM.SomeValue;
         
         }
 
@@ -84,13 +94,13 @@ namespace WPHFramework1
             base.OnDeactivate(close);
         }
 
-        public async void ShowTimedDialog(string message)
-        {
-            string msg = message + "; will close in 1 second.";
-            var dialog = new CustomDialog() { Title = msg };
-            await _dialogCoordinator.ShowMetroDialogAsync(this, dialog);
-            await Task.Delay(1000);
-            await _dialogCoordinator.HideMetroDialogAsync(this, dialog);
-        }
+        //public async void ShowTimedDialog(string message)
+        //{
+        //    string msg = message + "; will close in 1 second.";
+        //    var dialog = new CustomDialog() { Title = msg };
+        //    await _dialogCoordinator.ShowMetroDialogAsync(this, dialog);
+        //    await Task.Delay(1000);
+        //    await _dialogCoordinator.HideMetroDialogAsync(this, dialog);
+        //}
     }
 }

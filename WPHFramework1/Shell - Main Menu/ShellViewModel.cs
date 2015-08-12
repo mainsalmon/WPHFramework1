@@ -4,16 +4,43 @@ namespace WPHFramework1 {
     using MahApps.Metro.Controls.Dialogs;
     using System.Collections.ObjectModel;
     using System.Threading.Tasks;
+    using Caliburn.Micro.Autofac;
 
     public class ShellViewModel : Conductor<object>, IShell, IHandle<StatusMessage>
     {
         IWindowManager _windowManager;
         IEventAggregator _eventAggregator;
 
-        public ShellViewModel(IEventAggregator ea,  IWindowManager wm)
+        // Screen view models are injected into here and then activated from here
+        Screen1ViewModel _screen1VM;
+        Screen2ViewModel _screen2VM;
+        Screen3ViewModel _screen3VM;
+        Screen4ViewModel _screen4VM;
+        Screen5ViewModel _screen5VM;
+        Screen6ViewModel _screen6VM;
+        SettingsViewModel _settingsVM;
+
+        public ShellViewModel(IEventAggregator ea, 
+            IWindowManager wm, 
+            Screen1ViewModel s1,
+            Screen2ViewModel s2,
+            Screen3ViewModel s3,
+            Screen4ViewModel s4,
+            Screen5ViewModel s5,
+            Screen6ViewModel s6,
+            SettingsViewModel settings)
         {
             _windowManager = wm;
             _eventAggregator = ea;
+
+            _screen1VM = s1;
+            _screen2VM = s2;
+            _screen3VM = s3;
+            _screen4VM = s4;
+            _screen5VM = s5;
+            _screen6VM = s6;
+            _settingsVM = settings;
+
             DisplayName = "WPH Framework1 (Mahapps + Caliburn)";
             StatusMessageText = string.Empty;
         }
@@ -23,8 +50,9 @@ namespace WPHFramework1 {
         protected override void OnInitialize(){
             base.OnInitialize();
             _eventAggregator.Subscribe(this);
-            _settingVM = new SettingsViewModel(_eventAggregator);
-            ShowScreen1(); // Initial default
+         //   _settingVM = new SettingsViewModel(_eventAggregator);
+
+            ShowScreen1(); // Initial screen
         }
 
         protected override void OnDeactivate(bool close)
@@ -37,10 +65,9 @@ namespace WPHFramework1 {
 
         #region Settings Flyout
 
-        private SettingsViewModel _settingVM;
         public SettingsViewModel SettingsVM
         {
-            get { return _settingVM; }
+            get { return _settingsVM; }
         }
 
         public void ShowSettingsFlyout(ShellView view)
@@ -55,37 +82,45 @@ namespace WPHFramework1 {
 
         public void ShowScreen1()
         {
-            ActivateItem(new Screen1ViewModel(DialogCoordinator.Instance));
+            
+            // TODO: how to get screen1viewmodel out of the IOC instead of newing it up right here?
+          //  ActivateItem(new Screen1ViewModel());
+            ActivateItem(_screen1VM);
             RefreshMenuButtonGuards();
         }
 
         public void ShowScreen2()
         {
-            ActivateItem(new Screen2ViewModel(_eventAggregator, DialogCoordinator.Instance, _windowManager));
+          //  ActivateItem(new Screen2ViewModel(_eventAggregator, DialogCoordinator.Instance, _windowManager));
+            ActivateItem(_screen2VM);
             RefreshMenuButtonGuards();
         }
 
         public void ShowScreen3()
         {
-            ActivateItem(new Screen3ViewModel());
+           // ActivateItem(new Screen3ViewModel());
+            ActivateItem(_screen3VM);
             RefreshMenuButtonGuards();
         }
 
         public void ShowScreen4()
         {
-            ActivateItem(new Screen4ViewModel());
+           // ActivateItem(new Screen4ViewModel());
+            ActivateItem(_screen4VM);
             RefreshMenuButtonGuards();
         }
 
         public void ShowScreen5()
         {
-            ActivateItem(new Screen5ViewModel());
+            //ActivateItem(new Screen5ViewModel());
+            ActivateItem(_screen5VM);
             RefreshMenuButtonGuards();
         }
 
         public void ShowScreen6()
         {
-            ActivateItem(new Screen6ViewModel());
+          //  ActivateItem(new Screen6ViewModel());
+            ActivateItem(_screen6VM);
             RefreshMenuButtonGuards();
         }
 
