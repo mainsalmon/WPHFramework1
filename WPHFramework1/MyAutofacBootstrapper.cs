@@ -34,7 +34,10 @@ namespace WPHFramework1
 
         protected override void Configure()
         {
-            //  Autofac configure container
+            //NOTE: If viewmodels don't implement INotifyPropertyChanged (via Screen or PropertyChangedBase or other means)
+            // then they don't get registered here.  Results in runtime crash.
+
+            //  Configure container
             var builder = new ContainerBuilder();
 
             //  Register view models

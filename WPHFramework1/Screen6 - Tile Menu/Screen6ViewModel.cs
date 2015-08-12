@@ -10,9 +10,5 @@ namespace WPHFramework1
     public class Screen6ViewModel : PropertyChangedBase
     {
 
-        //public void Employees()
-        //{
-
-        //}
     }
 }
