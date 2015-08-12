@@ -18,6 +18,7 @@ namespace WPHFramework1 {
         Screen4ViewModel _screen4VM;
         Screen5ViewModel _screen5VM;
         Screen6ViewModel _screen6VM;
+        Screen7ViewModel _screen7VM;
         SettingsViewModel _settingsVM;
 
         public ShellViewModel(IEventAggregator ea, 
@@ -28,6 +29,7 @@ namespace WPHFramework1 {
             Screen4ViewModel s4,
             Screen5ViewModel s5,
             Screen6ViewModel s6,
+            Screen7ViewModel s7,
             SettingsViewModel settings)
         {
             _windowManager = wm;
@@ -39,9 +41,10 @@ namespace WPHFramework1 {
             _screen4VM = s4;
             _screen5VM = s5;
             _screen6VM = s6;
+            _screen7VM = s7;
             _settingsVM = settings;
 
-            DisplayName = "WPH Framework1 (Mahapps + Caliburn)";
+            DisplayName = "WPH Framework1 (Caliburn + Mahapps +  Autofac)";
             StatusMessageText = string.Empty;
         }
 
@@ -50,8 +53,7 @@ namespace WPHFramework1 {
         protected override void OnInitialize(){
             base.OnInitialize();
             _eventAggregator.Subscribe(this);
-         //   _settingVM = new SettingsViewModel(_eventAggregator);
-
+        
             ShowScreen1(); // Initial screen
         }
 
@@ -82,45 +84,44 @@ namespace WPHFramework1 {
 
         public void ShowScreen1()
         {
-            
-            // TODO: how to get screen1viewmodel out of the IOC instead of newing it up right here?
-          //  ActivateItem(new Screen1ViewModel());
+          // Get screen1viewmodel out of the IOC instead of newing it up right here: ActivateItem(new Screen1ViewModel());
             ActivateItem(_screen1VM);
             RefreshMenuButtonGuards();
         }
 
         public void ShowScreen2()
         {
-          //  ActivateItem(new Screen2ViewModel(_eventAggregator, DialogCoordinator.Instance, _windowManager));
             ActivateItem(_screen2VM);
             RefreshMenuButtonGuards();
         }
 
         public void ShowScreen3()
         {
-           // ActivateItem(new Screen3ViewModel());
             ActivateItem(_screen3VM);
             RefreshMenuButtonGuards();
         }
 
         public void ShowScreen4()
         {
-           // ActivateItem(new Screen4ViewModel());
             ActivateItem(_screen4VM);
             RefreshMenuButtonGuards();
         }
 
         public void ShowScreen5()
         {
-            //ActivateItem(new Screen5ViewModel());
             ActivateItem(_screen5VM);
             RefreshMenuButtonGuards();
         }
 
         public void ShowScreen6()
         {
-          //  ActivateItem(new Screen6ViewModel());
             ActivateItem(_screen6VM);
+            RefreshMenuButtonGuards();
+        }
+
+        public void ShowScreen7()
+        {
+            ActivateItem(_screen7VM);
             RefreshMenuButtonGuards();
         }
 
@@ -136,7 +137,7 @@ namespace WPHFramework1 {
             NotifyOfPropertyChange(() => CanShowScreen4);
             NotifyOfPropertyChange(() => CanShowScreen5);
             NotifyOfPropertyChange(() => CanShowScreen6);
-
+            NotifyOfPropertyChange(() => CanShowScreen7);
         }
 
         public bool CanShowScreen1
@@ -167,6 +168,11 @@ namespace WPHFramework1 {
         public bool CanShowScreen6
         {
             get { return ActiveItem == null || ActiveItem.GetType() != typeof(Screen6ViewModel); }
+        }
+
+        public bool CanShowScreen7
+        {
+            get { return ActiveItem == null || ActiveItem.GetType() != typeof(Screen7ViewModel); }
         }
 
         #endregion Disable Menu Button if it's screen is current selection

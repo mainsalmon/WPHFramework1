@@ -120,6 +120,10 @@
       <DependentUpon>Screen6View.xaml</DependentUpon>
     </Compile>
     <Compile Include="Screen6 - Tile Menu\Screen6ViewModel.cs" />
+    <Compile Include="Screen7 - Async Progress\Screen7ViewModel.cs" />
+    <Compile Include="Screen7 - Async Progress\Screen7View.xaml.cs">
+      <DependentUpon>Screen7View.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Settings - Flyout\SettingsView.xaml.cs">
       <DependentUpon>SettingsView.xaml</DependentUpon>
     </Compile>
@@ -159,6 +163,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Screen6 - Tile Menu\Screen6View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Screen7 - Async Progress\Screen7View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -4,11 +4,14 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:cal="http://www.caliburnproject.org"
+               xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
              xmlns:chartingToolkit="clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=System.Windows.Controls.DataVisualization.Toolkit"
              mc:Ignorable="d" 
              d:DesignHeight="700" d:DesignWidth="900">
     <Grid>
         <Grid  Background="#DDD">
+            <Controls:ProgressRing Foreground="{DynamicResource AccentColorBrush}" x:Name="progressIndicator" IsActive="False"/>
+
             <StackPanel>
                 <TextBlock Text="Screen 4 - Charting"
                    VerticalAlignment="Center" TextWrapping="Wrap"

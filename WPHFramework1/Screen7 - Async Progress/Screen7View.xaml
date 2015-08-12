@@ -1,0 +1,22 @@
+﻿<UserControl x:Class="WPHFramework1.Screen7View"
+             xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="700" d:DesignWidth="900">
+    <Grid>
+        <StackPanel>
+            <TextBlock Text="Screen 7 - Async Process with Progress and Cancellation"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"
+                   FontSize="20" Margin="0 0 0 20"/>
+            <Button x:Name="StartProcess" Width="150" Content="Start Async Process" Style="{StaticResource AccentedSquareButtonStyle}" Margin="0 0 0 5"/>
+            <Controls:MetroProgressBar  Value="{Binding ProgressValue}" Height="20" Width="300" Margin="0 0 0 5" Minimum="0" Maximum="100"/>
+            <Button x:Name="CancelProcess" Width="150" Content="Cancel Process" Style="{StaticResource AccentedSquareButtonStyle}" Margin="0 0 0 5" />
+
+        </StackPanel>
+
+    </Grid>
+</UserControl>
