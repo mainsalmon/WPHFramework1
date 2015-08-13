@@ -7,7 +7,7 @@
              xmlns:local="clr-namespace:WPHFramework1"
              xmlns:System="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="500">
+             d:DesignHeight="800" d:DesignWidth="900">
     
     <UserControl.Resources>
         <!-- support for binding combobox cell to enum values -->
@@ -20,7 +20,7 @@
     
     <Grid>
         <StackPanel>
-            <TextBlock Text="Screen 3 - DataGrid with various column types"
+            <TextBlock Text="Screen 3 - Editable DataGrid example with various column types styled via MahApps"
                    VerticalAlignment="Center"
                    HorizontalAlignment="Center"
                    FontSize="20" Margin="0 0 0 20"/>

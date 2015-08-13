@@ -53,7 +53,9 @@ namespace WPHFramework1
               .AsSelf()
                 //  always create a new one
               .InstancePerDependency();
-          
+
+            // TODO: would be nice to have more granular control, ie., to register some view models with .InstancePerLifetimeScope
+            // and some with InstancePerDependency, etc. How to leverage that?  Hmmmm....
 
             //  Register views
             builder.RegisterAssemblyTypes(AssemblySource.Instance.ToArray())

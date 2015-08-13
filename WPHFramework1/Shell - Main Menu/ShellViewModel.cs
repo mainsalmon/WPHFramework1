@@ -11,7 +11,7 @@ namespace WPHFramework1 {
         IWindowManager _windowManager;
         IEventAggregator _eventAggregator;
 
-        // Screen view models are injected into here and then activated from here
+        // Screen view models are injected into here and then activated from here via the menu
         Screen1ViewModel _screen1VM;
         Screen2ViewModel _screen2VM;
         Screen3ViewModel _screen3VM;
@@ -44,7 +44,7 @@ namespace WPHFramework1 {
             _screen7VM = s7;
             _settingsVM = settings;
 
-            DisplayName = "WPH Framework1 (Caliburn + Mahapps +  Autofac)";
+            DisplayName = "WPH Framework1 (Caliburn.Micro + Mahapps + Autofac)";
             StatusMessageText = string.Empty;
         }
 
@@ -84,7 +84,6 @@ namespace WPHFramework1 {
 
         public void ShowScreen1()
         {
-          // Get screen1viewmodel out of the IOC instead of newing it up right here: ActivateItem(new Screen1ViewModel());
             ActivateItem(_screen1VM);
             RefreshMenuButtonGuards();
         }
@@ -127,7 +126,9 @@ namespace WPHFramework1 {
 
         #endregion Show Screens
 
-        #region Disable Menu Button if it's screen is current selection
+        #region Disable Menu Button if its screen is the current selection
+
+        // Hmmmm..... there's got to be a cleaner way to handle this...
 
         private void RefreshMenuButtonGuards()
         {
@@ -183,12 +184,12 @@ namespace WPHFramework1 {
         {
             // Handle the message here.
             // Messages can be differentiated by type.  So create various message objects
-            // and handle each separately.  also note polymorphism.  So handler for object will also handle string msg
-            // and if both an object and string handlers are defined, both will be called.
+            // and handle each separately.  Also note polymorphism.  So a handler for object will also handle string msg:
+            // so if both an object and string handlers are defined, both will be called.
         
             StatusMessageText = messageObj.Message;
 
-            await Task.Delay(3000);
+            await Task.Delay(2000);  // show the message for a couple seconds
             StatusMessageText = string.Empty;
         }
 
@@ -207,6 +208,7 @@ namespace WPHFramework1 {
         {
             get { return StatusMessageText != string.Empty; }
         }
+
         #endregion Handle Status Message 
     }
 }

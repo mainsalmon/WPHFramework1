@@ -8,7 +8,7 @@
              d:DesignHeight="700" d:DesignWidth="900">
     <Grid>
         <StackPanel>
-            <TextBlock Text="Screen 7 - Async Process with Progress and Cancellation"
+            <TextBlock Text="Screen 7 - Example of an Async Process with Progress and Cancellation"
                    VerticalAlignment="Center"
                    HorizontalAlignment="Center"
                    FontSize="20" Margin="0 0 0 20"/>

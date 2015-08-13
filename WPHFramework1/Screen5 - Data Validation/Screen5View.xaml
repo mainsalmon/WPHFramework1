@@ -6,11 +6,11 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WPHFramework1"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="700" d:DesignWidth="900">
   
     <Grid  Background="#DDD">
         <StackPanel>
-            <TextBlock Text="Screen 5 - Data Validation"
+            <TextBlock Text="Screen 5 - Data Validation using INotifyDataErrorInfo, attributes, and a custom validation"
                    VerticalAlignment="Center"
                    HorizontalAlignment="Center"
                    FontSize="20" Margin="0 0 0 20"/>
@@ -48,7 +48,7 @@
                 <TextBox Grid.Row="21" Grid.Column="1" Text="{Binding SelectedMember.HairColor, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}" />
             </Grid>
         </StackPanel>
-        <Button Content="OK to Continue" IsEnabled="{Binding SelectedMember.HasErrors, Converter={StaticResource flipBool}}"  Width="100" Margin="20"  VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
+        <Button Content="This button is enabled if valid" IsEnabled="{Binding SelectedMember.HasErrors, Converter={StaticResource flipBool}}"  Width="200" Margin="20"  VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
   
     </Grid>
 </UserControl>

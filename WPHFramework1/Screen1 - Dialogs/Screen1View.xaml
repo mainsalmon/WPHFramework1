@@ -11,7 +11,7 @@
     <Grid Background="#DDD">
         <StackPanel>
             
-        <TextBlock Text="Screen 1 - Various types of Mahapps dialogs"
+        <TextBlock Text="Screen 1 - Examples of the various types of Mahapps dialogs"
                    VerticalAlignment="Center"
                    HorizontalAlignment="Center"
                    FontSize="20" Margin="0 0 0 20" />
@@ -22,7 +22,7 @@
             <Button x:Name="ShowInputDialog" Width="150" Content="Show Input Dialog" Style="{StaticResource AccentedSquareButtonStyle}" Margin="0 0 0 5"/>
             <Button x:Name="ShowProgressDialog" Width="150" Content="Show Progress Dialog" Style="{StaticResource AccentedSquareButtonStyle}" Margin="0 0 0 5"/>
             <Button x:Name="ShowLoginDialog" Width="150" Content="Show Login Dialog" Style="{StaticResource AccentedSquareButtonStyle}" Margin="0 0 0 5"/>
-            <TextBlock Text="Results from each dialog are handled in Screen1ViewModel" HorizontalAlignment="Center" Margin="0 10 0 0"/>
+            <TextBlock Text="Results returned from each dialog are handled in Screen1ViewModel" HorizontalAlignment="Center" Margin="0 10 0 0"/>
         </StackPanel>
     </Grid>
 </UserControl>

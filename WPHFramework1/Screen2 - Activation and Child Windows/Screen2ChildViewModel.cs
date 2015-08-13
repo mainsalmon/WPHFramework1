@@ -9,15 +9,11 @@ namespace WPHFramework1
 {
     public class Screen2ChildViewModel: Screen
     {
-        //public Screen2ChildViewModel(string displayName)
-        //{
-        //    DisplayName = displayName;
-        //}
+        private IEventAggregator _eventAggregator;
 
-        protected override void OnInitialize()
+        public Screen2ChildViewModel(IEventAggregator eventAggregator)
         {
-            base.OnInitialize();
-            
+            _eventAggregator = eventAggregator;
         }
 
         public void CloseMe()
@@ -34,6 +30,12 @@ namespace WPHFramework1
                 NotifyOfPropertyChange(() => SomeValue);
             
             }
+        }
+
+        protected override void OnDeactivate(bool close)
+        {
+            _eventAggregator.PublishOnUIThread(new StatusMessage(Criticality.Informational, "The child form just closed."));
+            base.OnDeactivate(close);
         }
         
     }

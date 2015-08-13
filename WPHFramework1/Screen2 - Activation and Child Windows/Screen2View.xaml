@@ -11,7 +11,7 @@
     
     <Grid  Background="#DDD">
         <StackPanel>
-            <TextBlock Text="Screen 2 - Window activation and deactivation; Modal and Non-Modal child windows"
+            <TextBlock Text="Screen 2 - Example of window activation and deactivation and Modal and Non-Modal child windows"
                    VerticalAlignment="Center" TextWrapping="Wrap"
                    HorizontalAlignment="Center"
                    FontSize="20" Margin="0 0 0 20"/>
@@ -23,6 +23,8 @@
             <Button Width="200" Content="Show Modal Child Window" 
                     cal:Message.Attach="[Event Click] = [Action ShowModalDialogWindow($view)]"
                     Style="{StaticResource AccentedSquareButtonStyle}" Margin="0 0 0 5"/>
+            
+            <TextBlock Text="Messages are sent when this window is activated and deactivated, and also when either child window is closed." Width="200" Height="50" TextWrapping="Wrap"/>
           
         </StackPanel>
 

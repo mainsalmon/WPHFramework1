@@ -27,7 +27,7 @@ namespace WPHFramework1
 
         private void HandleMsgBoxClose(MessageDialogResult rslt)
         {
-            
+            // do something here
         }
 
         #endregion Show Message Dialog
