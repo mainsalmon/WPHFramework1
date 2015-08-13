@@ -124,6 +124,10 @@
     <Compile Include="Screen7 - Async Progress\Screen7View.xaml.cs">
       <DependentUpon>Screen7View.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Screen8 - BusyIndicator\Screen8View.xaml.cs">
+      <DependentUpon>Screen8View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Screen8 - BusyIndicator\Screen8ViewModel.cs" />
     <Compile Include="Settings - Flyout\SettingsView.xaml.cs">
       <DependentUpon>SettingsView.xaml</DependentUpon>
     </Compile>
@@ -167,6 +171,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Screen7 - Async Progress\Screen7View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Screen8 - BusyIndicator\Screen8View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

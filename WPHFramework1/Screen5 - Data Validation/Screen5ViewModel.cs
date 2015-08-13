@@ -15,7 +15,7 @@ namespace WPHFramework1
             Members = new ObservableCollection<Person>(){
                 new Person("James", 41, "brown"),
                 new Person("Ed", 17, "black"),
-                new Person("Fred", 43, "red")
+                new Person("Fred", 43, "brown")
             };
         }
 

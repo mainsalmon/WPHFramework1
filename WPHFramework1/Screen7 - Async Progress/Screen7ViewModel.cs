@@ -24,7 +24,6 @@ namespace WPHFramework1
             {
                 //Launch the process
                 int items = await DoBigWorkAsync(null, progressIndicator, _cts.Token);
-               // PauseThenClearProgress();
             }
             catch (OperationCanceledException ex)
             {
