@@ -17,6 +17,7 @@ This is a demonstration UI app to document various code patterns that would be i
 - MahApps Flyout.
 - Autofac DI container and injection of all viewmodel dependencies.
 - Using MahApps Tiles as a menu bound to actions in the view model via Caliburn conventions.
+- Two approaches to busy indicators that are MahApps-friendly. (avoiding toolkit full of controls that are not styled by MahApps).
 
 
 
