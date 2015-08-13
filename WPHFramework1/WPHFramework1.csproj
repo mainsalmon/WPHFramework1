@@ -128,6 +128,10 @@
       <DependentUpon>Screen8View.xaml</DependentUpon>
     </Compile>
     <Compile Include="Screen8 - BusyIndicator\Screen8ViewModel.cs" />
+    <Compile Include="Screen9View.xaml.cs">
+      <DependentUpon>Screen9View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Screen9ViewModel.cs" />
     <Compile Include="Settings - Flyout\SettingsView.xaml.cs">
       <DependentUpon>SettingsView.xaml</DependentUpon>
     </Compile>
@@ -178,6 +182,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Screen9View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Settings - Flyout\SettingsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -215,7 +223,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Screen9 - MahApps TabControl\" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\image1.PNG">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

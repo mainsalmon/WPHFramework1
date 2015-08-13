@@ -46,6 +46,7 @@
             <MenuItem Header="Screen 6" x:Name="ShowScreen6" />
             <MenuItem Header="Screen 7" x:Name="ShowScreen7" />
             <MenuItem Header="Screen 8" x:Name="ShowScreen8" />
+            <MenuItem Header="Screen 9" x:Name="ShowScreen9" />
         </Menu>
         
         <Controls:TransitioningContentControl Grid.Row="1" x:Name="ActiveItem" Margin="5" Transition="RightReplace" />

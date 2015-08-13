@@ -20,6 +20,7 @@ namespace WPHFramework1 {
         Screen6ViewModel _screen6VM;
         Screen7ViewModel _screen7VM;
         Screen8ViewModel _screen8VM;
+        Screen9ViewModel _screen9VM;
         SettingsViewModel _settingsVM;
 
         public ShellViewModel(
@@ -33,6 +34,7 @@ namespace WPHFramework1 {
             Screen6ViewModel s6,
             Screen7ViewModel s7,
             Screen8ViewModel s8,
+            Screen9ViewModel s9,
             SettingsViewModel settings)
         {
             _windowManager = wm;
@@ -46,6 +48,7 @@ namespace WPHFramework1 {
             _screen6VM = s6;
             _screen7VM = s7;
             _screen8VM = s8;
+            _screen9VM = s9;
             _settingsVM = settings;
 
             DisplayName = "WPH Framework1 (Caliburn.Micro + Mahapps + Autofac)";
@@ -134,6 +137,12 @@ namespace WPHFramework1 {
             RefreshMenuButtonGuards();
         }
 
+        public void ShowScreen9()
+        {
+            ActivateItem(_screen9VM);
+            RefreshMenuButtonGuards();
+        }
+
         #endregion Show Screens
 
         #region Disable Menu Button if its screen is the current selection
@@ -150,6 +159,7 @@ namespace WPHFramework1 {
             NotifyOfPropertyChange(() => CanShowScreen6);
             NotifyOfPropertyChange(() => CanShowScreen7);
             NotifyOfPropertyChange(() => CanShowScreen8);
+            NotifyOfPropertyChange(() => CanShowScreen9);
 
         }
 
@@ -191,6 +201,11 @@ namespace WPHFramework1 {
         public bool CanShowScreen8
         {
             get { return ActiveItem == null || ActiveItem.GetType() != typeof(Screen8ViewModel); }
+        }
+
+        public bool CanShowScreen9
+        {
+            get { return ActiveItem == null || ActiveItem.GetType() != typeof(Screen9ViewModel); }
         }
 
         #endregion Disable Menu Button if it's screen is current selection

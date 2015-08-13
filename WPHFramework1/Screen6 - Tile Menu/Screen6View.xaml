@@ -26,14 +26,14 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
          <TextBlock Grid.Row="0"  Text="Screen 6 - Tile Menu example using MahApps Tiles (each bound to an action via Caliburn)"
                    VerticalAlignment="Center"
                    HorizontalAlignment="Center"
                    FontSize="20" Margin="0 0 0 20"/>
 
-        <Grid Grid.Row="1"  >
+        <Grid Grid.Row="1" Background="DarkBlue"  >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="27*"/>
                 <ColumnDefinition Width="430*"/>
@@ -44,44 +44,63 @@
             </Grid.RowDefinitions>
 
             <TextBlock Grid.Column="1"
+                   Foreground="White"
                    VerticalAlignment="Center"
                    Text="Menu"
                    FontWeight="Light"
-                   Foreground="Black"
                    FontSize="30"
                    FontFamily="Segoe UI" />
+            
+            <ScrollViewer Grid.Row="1" Grid.Column="1" VerticalScrollBarVisibility="Auto">
+           
+                <WrapPanel  HorizontalAlignment="Stretch"  >
+                    <Controls:Tile Title="Tasks"
+                                   Style="{StaticResource LargeTileStyle}" 
+                                   Content="Task List Here" Background="Teal" Margin="3"
+                                   cal:Message.Attach="[Event Click] = [Action HandleTileClick($source)]"
+                                   />
+                    <Controls:Tile Title="Desktop"
+                                   Style="{StaticResource LargeTileStyle}"  Margin="3"
+                                   cal:Message.Attach="[Event Click] = [Action HandleTileClick($source)]">
+                        <Controls:Tile.Background>
+                            <ImageBrush ImageSource="/Images/image1.PNG" />
+                        </Controls:Tile.Background>
+                    </Controls:Tile>
+                    <!-- Employees tile bound directly via x:Name -->
+                    <Controls:Tile Title="Employees" 
+                                   Style="{StaticResource LargeTileStyle}" 
+                                   Background="Green" x:Name="Employees" 
+                                   />
+                    <Controls:Tile Title="Other" TitleFontSize="16"
+                                   Style="{StaticResource LargeTileStyle}" Background="#D2691E" 
+                                   cal:Message.Attach="[Event Click] = [Action HandleTileClick($source)]"/>
+                    <Controls:Tile Title="" 
+                                   Style="{StaticResource LargeTileStyle}" Background="#1E90FF" 
+                                   cal:Message.Attach="[Event Click] = [Action HandleTileClick($source)]">
+                        <Grid >
+                            <StackPanel HorizontalAlignment="Center">
 
-            <WrapPanel Grid.Row="1" Grid.Column="1"  HorizontalAlignment="Left" VerticalAlignment="Top" >
-                <Controls:Tile Title="Tasks"
-                               Style="{StaticResource LargeTileStyle}" 
-                               Content="Task List Here" Background="Teal" Margin="3"
-                               cal:Message.Attach="[Event Click] = [Action HandleTileClick($source)]"
-                               />
-                <Controls:Tile Title="Desktop"
-                               Style="{StaticResource LargeTileStyle}"  Margin="3"
-                               cal:Message.Attach="[Event Click] = [Action HandleTileClick($source)]">
-                    <Controls:Tile.Background>
-                        <ImageBrush ImageSource="/Images/image1.PNG" />
-                    </Controls:Tile.Background>
-                </Controls:Tile>
-                <!-- Employees tile bound directly via x:Name -->
-                <Controls:Tile Title="Employees" 
-                               Style="{StaticResource LargeTileStyle}" 
-                               Background="Green" x:Name="Employees" 
-                               />
-                <Controls:Tile Title="Other" 
-                               Style="{StaticResource LargeTileStyle}" Background="#D2691E" 
-                               cal:Message.Attach="[Event Click] = [Action HandleTileClick($source)]"/>
-                <Controls:Tile Title="Weather" 
-                               Style="{StaticResource LargeTileStyle}" Background="#1E90FF" 
-                               cal:Message.Attach="[Event Click] = [Action HandleTileClick($source)]"/>
-                <Controls:Tile Title="Admin" 
-                               Style="{StaticResource SmallTileStyle}" Background="#1E90FF" 
-                               cal:Message.Attach="[Event Click] = [Action HandleTileClick($source)]"/>
-                <Controls:Tile Title="Apps" 
-                               Style="{StaticResource SmallTileStyle}" Background="Green" 
-                               cal:Message.Attach="[Event Click] = [Action HandleTileClick($source)]"/>
-            </WrapPanel>
+                                <Path Stretch="Fill" 
+                                  Height="18" Width="18"
+                                  HorizontalAlignment="Center" 
+                                  Fill="White"
+                                  Stroke="{x:Null}"
+                                  StrokeThickness="0.5"                              
+                                  Data="F1 M 12.2495,36.8804L 36.8804,12.2496C 37.4987,11.6312 38.5012,11.6312 39.1196,12.2496L 63.7504,36.8804C 64.3688,37.4988 64.3688,38.5013 63.7504,39.1196L 39.1196,63.7505C 38.5013,64.3688 37.4987,64.3688 36.8804,63.7505L 12.2495,39.1196C 11.6312,38.5013 11.6312,37.4988 12.2495,36.8804 Z M 38,45.125C 36.0325,45.125 34.4375,46.72 34.4375,48.6875C 34.4375,50.655 36.0325,52.25 38,52.25C 39.9675,52.25 41.5625,50.655 41.5625,48.6875C 41.5625,46.72 39.9675,45.125 38,45.125 Z M 34.4375,23.75L 35.625,42.75L 40.375,42.75L 41.5625,23.75L 34.4375,23.75 Z " />
+                                <TextBlock Text ="Warnings Journal" FontSize="14" Margin="0 5 0 0"/>
+                            </StackPanel>
+
+                        </Grid>
+                    </Controls:Tile>
+                    
+                    <Controls:Tile Title="Admin" 
+                                   Style="{StaticResource SmallTileStyle}" Background="#1E90FF" 
+                                   cal:Message.Attach="[Event Click] = [Action HandleTileClick($source)]"/>
+                    <Controls:Tile Title="Apps" 
+                                   Style="{StaticResource SmallTileStyle}" Background="Green" 
+                                   cal:Message.Attach="[Event Click] = [Action HandleTileClick($source)]"/>
+                </WrapPanel>
+        </ScrollViewer>
         </Grid>
     </Grid >
 
