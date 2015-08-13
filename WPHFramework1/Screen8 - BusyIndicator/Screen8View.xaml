@@ -32,6 +32,9 @@
             <Button x:Name="StartProcess2" Width="250" Content="Start Process (Using IsBusy and Ring)" Style="{StaticResource AccentedSquareButtonStyle}" Margin="0 0 0 5"/>
 
         </StackPanel>
-        <controls:ProgressRing IsActive="{Binding IsBusy}"/> <!-- and use of the grid style to disable the grid while IsBusy -->
+        <StackPanel Visibility="{Binding IsBusy, Converter={StaticResource BoolTrueToVis}}" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <controls:ProgressRing IsActive="{Binding IsBusy}"/> <!-- and use of the grid style to disable the grid while IsBusy -->
+            <TextBlock Text="Screen8ViewModel is busy, sit tight!" FontSize="16" Margin="10"/>
+        </StackPanel>
     </Grid>
 </UserControl>
