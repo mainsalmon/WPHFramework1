@@ -25,7 +25,7 @@ namespace WPHFramework1
                 //Launch the process
                 int items = await DoBigWorkAsync(null, progressIndicator, _cts.Token);
             }
-            catch (OperationCanceledException ex)
+            catch (OperationCanceledException)
             {
                 // Do whatever we need to do to clean up a cancellation
             }

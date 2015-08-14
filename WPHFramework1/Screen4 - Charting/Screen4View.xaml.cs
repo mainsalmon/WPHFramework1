@@ -21,7 +21,6 @@ namespace WPHFramework1
     /// </summary>
     public partial class Screen4View : UserControl
     {
-        private Cursor _cacheCursor;
 
         public Screen4View()
         {
