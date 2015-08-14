@@ -1,0 +1,140 @@
+﻿<UserControl x:Class="WPHFramework1.Screen9View"
+             xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="700" d:DesignWidth="900">
+    <Grid Background="#DDD">
+        <StackPanel>
+            <TextBlock Text="Screen 9 - MahApps TabControl Examples"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"
+                   FontSize="20" Margin="0 0 0 20"/>
+            <Grid>
+                <Grid.Resources>
+                    <Style TargetType="TextBlock">
+                       <Setter Property="FontSize" Value="18"/>
+                        <Setter Property="HorizontalAlignment" Value="Center"/>
+                        <Setter Property="VerticalAlignment" Value="Center"/>
+                    </Style>
+                    <Style TargetType="Label">
+                        <Setter Property="FontSize" Value="18"/>
+                        <Setter Property="FontWeight" Value="Bold"/>
+                        <Setter Property="HorizontalAlignment" Value="Left"/>
+                    </Style>
+                   
+                </Grid.Resources>
+                
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                
+                <Label Grid.Row="0" Content="MetroTabControl" />
+                <controls:MetroTabControl Grid.Row="1" Height="100" Background="White" >
+                    <controls:MetroTabItem Header="Tab1" > <TextBlock>Tab1 Content</TextBlock></controls:MetroTabItem>
+                    <controls:MetroTabItem Header="Tab2" > <TextBlock>Tab2 Content </TextBlock></controls:MetroTabItem>
+                    <controls:MetroTabItem Header="Tab3" > <TextBlock>Tab3 Content</TextBlock></controls:MetroTabItem>
+                </controls:MetroTabControl>
+
+                <Label Grid.Row="2" Content="MetroAnnimatedTabControl"/>
+                <controls:MetroAnimatedTabControl Grid.Row="3" Height="200" Background="White" >                   
+                    <controls:MetroTabItem Header="Tab1" > <TextBlock>Tab1 Content</TextBlock></controls:MetroTabItem>
+                    <controls:MetroTabItem Header="Tab2" > <TextBlock>Tab2 Content</TextBlock></controls:MetroTabItem>
+                    <controls:MetroTabItem Header="Tab3" > <TextBlock>Tab3 Content</TextBlock></controls:MetroTabItem>
+                    <controls:MetroTabItem Header="Tab4" > <TextBlock>Tab4 Content</TextBlock></controls:MetroTabItem>
+                    <controls:MetroTabItem Header="Tab5" > <TextBlock>Tab5 Content</TextBlock></controls:MetroTabItem>
+                    <controls:MetroTabItem Header="Tab6" > <TextBlock>Tab6 Content</TextBlock></controls:MetroTabItem>
+                    <controls:MetroTabItem Header="Tab7" > <TextBlock>Tab7 Content</TextBlock></controls:MetroTabItem>
+                    <controls:MetroTabItem Header="Tab8" > <TextBlock>Tab8 Content</TextBlock></controls:MetroTabItem>
+                    <controls:MetroTabItem Header="Tab9" > <TextBlock>Tab9 Content</TextBlock></controls:MetroTabItem>
+                    <controls:MetroTabItem Header="Tab10" > <TextBlock>Tab10 Content</TextBlock></controls:MetroTabItem>
+                    <controls:MetroTabItem Header="Tab11" > <TextBlock>Tab11 Content</TextBlock></controls:MetroTabItem>
+                    <controls:MetroTabItem Header="Tab12" > <TextBlock>Tab12 Content</TextBlock></controls:MetroTabItem>
+                    <controls:MetroTabItem Header="Tab13" > <TextBlock>Tab13 Content</TextBlock></controls:MetroTabItem>
+                    <controls:MetroTabItem Header="Tab14" > <TextBlock>Tab14 Content</TextBlock></controls:MetroTabItem>
+                    <controls:MetroTabItem Header="Tab15" > <TextBlock>Tab15 Content</TextBlock></controls:MetroTabItem>
+                    <controls:MetroTabItem Header="Tab16" > <TextBlock>Tab16 Content</TextBlock></controls:MetroTabItem>
+                    <controls:MetroTabItem Header="Tab17" > <TextBlock>Tab17 Content</TextBlock></controls:MetroTabItem>
+                    <controls:MetroTabItem Header="Tab18" > <TextBlock>Tab18 Content</TextBlock></controls:MetroTabItem>
+                    <controls:MetroTabItem Header="Tab19" > <TextBlock>Tab19 Content</TextBlock></controls:MetroTabItem>
+                    <controls:MetroTabItem Header="Tab20" > <TextBlock>Tab20 Content</TextBlock></controls:MetroTabItem>
+                </controls:MetroAnimatedTabControl>
+
+                <Label Grid.Row="4" Content="AnnimatedSingleRowTabControl"/>
+                <controls:MetroAnimatedSingleRowTabControl Grid.Row="5" Height="100" Background="White" >
+                <!-- Background property of this control isn't working -->
+                    <controls:MetroTabItem Header="Tab1" >
+                        <TextBlock>Tab1 Content</TextBlock>
+                    </controls:MetroTabItem>
+                    <controls:MetroTabItem Header="Tab2" >
+                        <TextBlock>Tab2 Content</TextBlock>
+                    </controls:MetroTabItem>
+                    <controls:MetroTabItem Header="Tab3" >
+                        <TextBlock>Tab3 Content</TextBlock>
+                    </controls:MetroTabItem>
+                    <controls:MetroTabItem Header="Tab4" >
+                        <TextBlock>Tab4 Content</TextBlock>
+                    </controls:MetroTabItem>
+                    <controls:MetroTabItem Header="Tab5" >
+                        <TextBlock>Tab5 Content</TextBlock>
+                    </controls:MetroTabItem>
+                    <controls:MetroTabItem Header="Tab6" >
+                        <TextBlock>Tab6 Content</TextBlock>
+                    </controls:MetroTabItem>
+                    <controls:MetroTabItem Header="Tab7" >
+                        <TextBlock>Tab7 Content</TextBlock>
+                    </controls:MetroTabItem>
+                    <controls:MetroTabItem Header="Tab8" >
+                        <TextBlock>Tab8 Content</TextBlock>
+                    </controls:MetroTabItem>
+                    <controls:MetroTabItem Header="Tab9" >
+                        <TextBlock>Tab9 Content</TextBlock>
+                    </controls:MetroTabItem>
+                    <controls:MetroTabItem Header="Tab10" >
+                        <TextBlock>Tab10 Content</TextBlock>
+                    </controls:MetroTabItem>
+                    <controls:MetroTabItem Header="Tab11" >
+                        <TextBlock>Tab11 Content</TextBlock>
+                    </controls:MetroTabItem>
+                    <controls:MetroTabItem Header="Tab12" >
+                        <TextBlock>Tab12 Content</TextBlock>
+                    </controls:MetroTabItem>
+                    <controls:MetroTabItem Header="Tab13" >
+                        <TextBlock>Tab13 Content</TextBlock>
+                    </controls:MetroTabItem>
+                    <controls:MetroTabItem Header="Tab14" >
+                        <TextBlock>Tab14 Content</TextBlock>
+                    </controls:MetroTabItem>
+                    <controls:MetroTabItem Header="Tab15" >
+                        <TextBlock>Tab15 Content</TextBlock>
+                    </controls:MetroTabItem>
+                    <controls:MetroTabItem Header="Tab16" >
+                        <TextBlock>Tab16 Content</TextBlock>
+                    </controls:MetroTabItem>
+                    <controls:MetroTabItem Header="Tab17" >
+                        <TextBlock>Tab17 Content</TextBlock>
+                    </controls:MetroTabItem>
+                    <controls:MetroTabItem Header="Tab18" >
+                        <TextBlock>Tab18 Content</TextBlock>
+                    </controls:MetroTabItem>
+                    <controls:MetroTabItem Header="Tab19" >
+                        <TextBlock>Tab19 Content</TextBlock>
+                    </controls:MetroTabItem>
+                    <controls:MetroTabItem Header="Tab20" >
+                        <TextBlock>Tab20 Content</TextBlock>
+                    </controls:MetroTabItem>
+
+                </controls:MetroAnimatedSingleRowTabControl>
+
+            </Grid>
+          
+        </StackPanel>
+    </Grid>
+</UserControl>

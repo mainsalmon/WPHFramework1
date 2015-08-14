@@ -24,31 +24,9 @@ namespace WPHFramework1
 
         public Screen4View()
         {
-            InitializeComponent();
-            this.Loaded += Screen4View_Loaded;
-         
-           
+            InitializeComponent(); 
         }
 
-      
-
-        void Screen4View_Loaded(object sender, RoutedEventArgs e)
-        {
-            Debug.WriteLine(string.Format("Loaded: {0}", DateTime.Now.ToLongTimeString()));
-           // this.progressIndicator.IsActive = false;
-            this.Cursor = Cursors.Arrow;
-          
-        }
-        protected override void OnRender(DrawingContext drawingContext)
-        {
-            base.OnRender(drawingContext);
-            Debug.WriteLine(string.Format("Render Started: {0}", DateTime.Now.ToLongTimeString()));
-          //  this.progressIndicator.IsActive = true;
-          
-            this.Cursor = Cursors.Wait;
-
-        }
-       
         
     }
 }
