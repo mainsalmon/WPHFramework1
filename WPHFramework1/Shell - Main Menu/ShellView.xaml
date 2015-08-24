@@ -50,17 +50,23 @@
         </Grid.RowDefinitions>
         
         <Menu Grid.Row="0">
-            <MenuItem Header="Search" cal:Message.Attach="[Event Click] = [Action ShowSearchFlyout($view)]" />
-            <MenuItem Header="Screen 1" x:Name="ShowScreen1" />
-            <MenuItem Header="Screen 2" x:Name="ShowScreen2" />
-            <MenuItem Header="Screen 3" x:Name="ShowScreen3" />
-            <MenuItem Header="Screen 4" x:Name="ShowScreen4" />
-            <MenuItem Header="Screen 5" x:Name="ShowScreen5" />
-            <MenuItem Header="Screen 6" x:Name="ShowScreen6" />
-            <MenuItem Header="Screen 7" x:Name="ShowScreen7" />
-            <MenuItem Header="Screen 8" x:Name="ShowScreen8" />
-            <MenuItem Header="Screen 9" x:Name="ShowScreen9" />
-            <MenuItem Header="Screen 10" x:Name="ShowScreen10" />
+            <Menu.Resources>
+                <Style TargetType="MenuItem">
+                    <Setter Property="Foreground" Value="{DynamicResource AccentColorBrush}"/>
+                    <Setter Property="FontSize" Value="18"/>
+                </Style>
+            </Menu.Resources>
+            <MenuItem Header="search" cal:Message.Attach="[Event Click] = [Action ShowSearchFlyout($view)]" />
+            <MenuItem Header="screen 1" x:Name="ShowScreen1" />
+            <MenuItem Header="screen 2" x:Name="ShowScreen2" />
+            <MenuItem Header="screen 3" x:Name="ShowScreen3" />
+            <MenuItem Header="screen 4" x:Name="ShowScreen4" />
+            <MenuItem Header="screen 5" x:Name="ShowScreen5" />
+            <MenuItem Header="screen 6" x:Name="ShowScreen6" />
+            <MenuItem Header="screen 7" x:Name="ShowScreen7" />
+            <MenuItem Header="screen 8" x:Name="ShowScreen8" />
+            <MenuItem Header="screen 9" x:Name="ShowScreen9" />
+            <MenuItem Header="screen 10" x:Name="ShowScreen10" />
         </Menu>
         
         <Controls:TransitioningContentControl Grid.Row="1" x:Name="ActiveItem" Margin="5" Transition="RightReplace" />
