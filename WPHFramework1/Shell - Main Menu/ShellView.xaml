@@ -11,11 +11,14 @@
         RightWindowCommandsOverlayBehavior="Never"
         WindowButtonCommandsOverlayBehavior="Never"                
         >
-
+ 
     <Controls:MetroWindow.RightWindowCommands >
         <Controls:WindowCommands >
+            <Button Content="search" cal:Message.Attach="[Event Click] = [Action ShowSearchFlyout($view)]" />
+            <Button Content="screen 3"  cal:Message.Attach="[Event Click] = [Action ShowScreen3()]" />
             <Button Content="settings"  cal:Message.Attach="[Event Click] = [Action ShowSettingsFlyout($view)]"/>
         </Controls:WindowCommands>
+
     </Controls:MetroWindow.RightWindowCommands>
 
     <Controls:MetroWindow.Flyouts>
@@ -26,10 +29,19 @@
                 Header="{Binding Header}">
                 <local:SettingsView />
             </Controls:Flyout>
+
+            <Controls:Flyout x:Name="searchFlyout" 
+                IsPinned="False"
+                DataContext="{Binding SearchVM }"  
+                Position="{Binding Position}" 
+                Header="{Binding Header}">
+                <local:SearchView />
+            </Controls:Flyout>
         </Controls:FlyoutsControl>
+ 
     </Controls:MetroWindow.Flyouts>
 
-    <!-- Body of Form starts here -->
+    <!-- Body of form starts here -->
     <Grid >
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -38,6 +50,7 @@
         </Grid.RowDefinitions>
         
         <Menu Grid.Row="0">
+            <MenuItem Header="Search" cal:Message.Attach="[Event Click] = [Action ShowSearchFlyout($view)]" />
             <MenuItem Header="Screen 1" x:Name="ShowScreen1" />
             <MenuItem Header="Screen 2" x:Name="ShowScreen2" />
             <MenuItem Header="Screen 3" x:Name="ShowScreen3" />
@@ -47,6 +60,7 @@
             <MenuItem Header="Screen 7" x:Name="ShowScreen7" />
             <MenuItem Header="Screen 8" x:Name="ShowScreen8" />
             <MenuItem Header="Screen 9" x:Name="ShowScreen9" />
+            <MenuItem Header="Screen 10" x:Name="ShowScreen10" />
         </Menu>
         
         <Controls:TransitioningContentControl Grid.Row="1" x:Name="ActiveItem" Margin="5" Transition="RightReplace" />
@@ -75,20 +89,6 @@
         </Grid>
         </Border>
         
-        <!-- appbar_transit_hazard
-           Data="F1 M 12.2495,36.8804L 36.8804,12.2496C 37.4987,11.6312 38.5012,11.6312 39.1196,12.2496L 63.7504,36.8804C 64.3688,37.4988 64.3688,38.5013 63.7504,39.1196L 39.1196,63.7505C 38.5013,64.3688 37.4987,64.3688 36.8804,63.7505L 12.2495,39.1196C 11.6312,38.5013 11.6312,37.4988 12.2495,36.8804 Z M 38,45.125C 36.0325,45.125 34.4375,46.72 34.4375,48.6875C 34.4375,50.655 36.0325,52.25 38,52.25C 39.9675,52.25 41.5625,50.655 41.5625,48.6875C 41.5625,46.72 39.9675,45.125 38,45.125 Z M 34.4375,23.75L 35.625,42.75L 40.375,42.75L 41.5625,23.75L 34.4375,23.75 Z "/>-->
-               
-        <!-- appbar_lightbulb 
-        
-        -->
-
-        <!-- appbar_lightening 
-        
-        -->
-
-        <!-- appbar_lifesaver
-        
-        -->
     </Grid>
 
 </Controls:MetroWindow>

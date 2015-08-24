@@ -18,6 +18,19 @@ namespace WPHFramework1
 
     public class Album : PropertyChangedBase
     {
+
+        public Album Clone()
+        {
+               Album newInstance = new Album()
+               {
+                    Title = this.Title,
+                    Quantity = this.Quantity,
+                    UnitPrice = this.UnitPrice,
+                    Category = this.Category 
+               };
+               return newInstance;
+        }
+
         private int _quantity;
         public int Quantity
         {
@@ -27,6 +40,7 @@ namespace WPHFramework1
                 {
                     _quantity = value;
                     NotifyOfPropertyChange(() => Quantity);
+                    NotifyOfPropertyChange(() => Extension);
                 }
             }
         }
@@ -55,6 +69,7 @@ namespace WPHFramework1
                 {
                     _unitPrice = value;
                     NotifyOfPropertyChange(() => UnitPrice);
+                    NotifyOfPropertyChange(() => Extension);
                 }
             }
         }
@@ -69,6 +84,14 @@ namespace WPHFramework1
                     _category = value;
                     NotifyOfPropertyChange(() => Category);
                 }
+            }
+        }
+
+        public double Extension
+        {
+            get
+            {
+                return UnitPrice * Quantity;
             }
         }
    

@@ -21,7 +21,9 @@ namespace WPHFramework1 {
         Screen7ViewModel _screen7VM;
         Screen8ViewModel _screen8VM;
         Screen9ViewModel _screen9VM;
+        Screen10ViewModel _screen10VM;
         SettingsViewModel _settingsVM;
+        SearchViewModel _searchVM;
 
         public ShellViewModel(
             IEventAggregator ea, 
@@ -35,7 +37,9 @@ namespace WPHFramework1 {
             Screen7ViewModel s7,
             Screen8ViewModel s8,
             Screen9ViewModel s9,
-            SettingsViewModel settings)
+            Screen10ViewModel s10,
+            SettingsViewModel settings,
+            SearchViewModel search)
         {
             _windowManager = wm;
             _eventAggregator = ea;
@@ -49,7 +53,9 @@ namespace WPHFramework1 {
             _screen7VM = s7;
             _screen8VM = s8;
             _screen9VM = s9;
+            _screen10VM = s10;
             _settingsVM = settings;
+            _searchVM = search;
 
             DisplayName = "WPH Framework1 (Caliburn.Micro + Mahapps + Autofac)";
             StatusMessageText = string.Empty;
@@ -86,6 +92,22 @@ namespace WPHFramework1 {
         }
 
         #endregion Settings Flyout
+
+
+        #region Search Flyout
+
+        public SearchViewModel SearchVM
+        {
+            get { return _searchVM; }
+        }
+
+        public void ShowSearchFlyout(ShellView view)
+        {
+            var flyout = view.searchFlyout;
+            flyout.IsOpen = !flyout.IsOpen;
+        }
+
+        #endregion Search Flyout
 
         #region Show Screens
 
@@ -143,6 +165,12 @@ namespace WPHFramework1 {
             RefreshMenuButtonGuards();
         }
 
+        public void ShowScreen10()
+        {
+            ActivateItem(_screen10VM);
+            RefreshMenuButtonGuards();
+        }
+
         #endregion Show Screens
 
         #region Disable Menu Button if its screen is the current selection
@@ -160,6 +188,7 @@ namespace WPHFramework1 {
             NotifyOfPropertyChange(() => CanShowScreen7);
             NotifyOfPropertyChange(() => CanShowScreen8);
             NotifyOfPropertyChange(() => CanShowScreen9);
+            NotifyOfPropertyChange(() => CanShowScreen10);
 
         }
 
@@ -206,6 +235,11 @@ namespace WPHFramework1 {
         public bool CanShowScreen9
         {
             get { return ActiveItem == null || ActiveItem.GetType() != typeof(Screen9ViewModel); }
+        }
+
+        public bool CanShowScreen10
+        {
+            get { return ActiveItem == null || ActiveItem.GetType() != typeof(Screen10ViewModel); }
         }
 
         #endregion Disable Menu Button if it's screen is current selection

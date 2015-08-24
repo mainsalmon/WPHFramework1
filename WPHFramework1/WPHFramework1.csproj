@@ -94,6 +94,10 @@
       <DependentUpon>Screen1View.xaml</DependentUpon>
     </Compile>
     <Compile Include="Screen1 - Dialogs\Screen1ViewModel.cs" />
+    <Compile Include="Screen10 - Edit List\Screen10View.xaml.cs">
+      <DependentUpon>Screen10View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Screen10 - Edit List\Screen10ViewModel.cs" />
     <Compile Include="Screen2 - Activation and Child Windows\Screen2ChildView.xaml.cs">
       <DependentUpon>Screen2ChildView.xaml</DependentUpon>
     </Compile>
@@ -132,6 +136,10 @@
       <DependentUpon>Screen9View.xaml</DependentUpon>
     </Compile>
     <Compile Include="Screen9 - MahApps TabControl\Screen9ViewModel.cs" />
+    <Compile Include="Search - Flyout\SearchViewModel.cs" />
+    <Compile Include="Search - Flyout\SearchView.xaml.cs">
+      <DependentUpon>SearchView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Settings - Flyout\SettingsView.xaml.cs">
       <DependentUpon>SettingsView.xaml</DependentUpon>
     </Compile>
@@ -143,6 +151,10 @@
     </Compile>
     <Compile Include="Messages\StatusMessage.cs" />
     <Page Include="Resources\LocalResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Screen10 - Edit List\Screen10View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -183,6 +195,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Screen9 - MahApps TabControl\Screen9View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Search - Flyout\SearchView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
