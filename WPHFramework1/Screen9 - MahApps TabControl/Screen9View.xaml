@@ -39,7 +39,8 @@
                 <Label Grid.Row="0" Content="MetroTabControl" />
                 <controls:MetroTabControl Grid.Row="1" Height="100" Background="White" >
                     <controls:MetroTabItem Header="Tab1" > <TextBlock>Tab1 Content</TextBlock></controls:MetroTabItem>
-                    <controls:MetroTabItem Header="Tab2" > <TextBlock>Tab2 Content </TextBlock></controls:MetroTabItem>
+                    <!-- next line shows how to adjust font size -->
+                    <controls:MetroTabItem Header="Tab2" controls:ControlsHelper.HeaderFontSize="32" > <TextBlock>Tab2 Content </TextBlock></controls:MetroTabItem>
                     <controls:MetroTabItem Header="Tab3" > <TextBlock>Tab3 Content</TextBlock></controls:MetroTabItem>
                 </controls:MetroTabControl>
 

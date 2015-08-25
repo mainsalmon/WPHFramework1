@@ -9,8 +9,8 @@
         GlowBrush="{DynamicResource AccentColorBrush}"
         ResizeMode="CanResizeWithGrip"
         RightWindowCommandsOverlayBehavior="Never"
-        WindowButtonCommandsOverlayBehavior="Never"                
-        >
+        WindowButtonCommandsOverlayBehavior="Never"               
+        ><!--Controls:ButtonHelper.PreserveTextCase="True" to defeat MahApps forcing lower case-->
  
     <Controls:MetroWindow.RightWindowCommands >
         <Controls:WindowCommands >

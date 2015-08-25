@@ -53,6 +53,8 @@
                                     Header="Price"  />
                             <GridViewColumn Width="100"  DisplayMemberBinding="{Binding Extension, StringFormat='C' }"
                                     Header="Extension"  />
+                            <GridViewColumn Width="100"  DisplayMemberBinding="{Binding ReleaseDate, StringFormat='d' }"
+                                    Header="Released"  />
                         </GridView>
                     </ListView.View>
                 </ListView>
@@ -67,17 +69,24 @@
                         <Style TargetType="TextBox">
                             <Setter Property="HorizontalAlignment" Value="Stretch"/>
                             <Setter Property="VerticalAlignment" Value="Stretch"/>
+                            <Setter Property="VerticalContentAlignment" Value="Center"/>
                             <Setter Property="Margin" Value="0 0 0 0"/>
                             <Setter Property="IsEnabled" Value="{Binding IsEditMode}"/>
                         </Style>
                         <Style TargetType="controls:NumericUpDown">
                             <Setter Property="IsEnabled" Value="{Binding IsEditMode}"/>
-                            <Setter Property="Width" Value="100"/>
+                            <Setter Property="Width" Value="150"/>
+                            <Setter Property="HorizontalAlignment" Value="Left"/>
+                            <Setter Property="TextAlignment" Value="Left"/>
+                        </Style>
+                        <Style TargetType="ComboBox" x:Name="cbStyle">
+                            <Setter Property="IsEnabled" Value="{Binding IsEditMode}"/>
+                            <Setter Property="Width" Value="150"/>
                             <Setter Property="HorizontalAlignment" Value="Left"/>
                         </Style>
-                        <Style TargetType="ComboBox">
+                        <Style TargetType="DatePicker">
                             <Setter Property="IsEnabled" Value="{Binding IsEditMode}"/>
-                            <Setter Property="Width" Value="100"/>
+                            <Setter Property="Width" Value="150"/>
                             <Setter Property="HorizontalAlignment" Value="Left"/>
                         </Style>
                     </Grid.Resources>
@@ -115,9 +124,13 @@
                                     Value="{Binding SelectedAlbum.UnitPrice}" 
                                     StringFormat="C" 
                                     Minimum="0" 
-                                    HideUpDownButtons="True"
-                                    
-                                    />
+                                    HideUpDownButtons="False" />
+
+                    <Label Content="Released:" Grid.Row="4" Grid.Column="0" />
+                    <DatePicker Grid.Row="4" Grid.Column="1" 
+                                    SelectedDate="{Binding SelectedAlbum.ReleaseDate}" 
+                                     />
+
                     <!-- Buttons -->
                     <Button x:Name="DoEditMode" Grid.Row="0" Grid.Column="2" Content="Edit" Width="100" />
 

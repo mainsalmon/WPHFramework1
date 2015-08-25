@@ -19,8 +19,8 @@ namespace WPHFramework1
             base.OnInitialize();
             _albums = new ObservableCollection<Album>()
             {
-                new Album(){Title = "XXXX", Category=AlbumCategory.Country, Quantity=3, UnitPrice=8.95},
-                new Album(){Title = "YYYY", Category=AlbumCategory.Pop, Quantity=55, UnitPrice=12.49}
+                new Album(){Title = "XXXX", Category=AlbumCategory.Country, Quantity=3, UnitPrice=8.95, ReleaseDate = new DateTime(2012, 3, 14)},
+                new Album(){Title = "YYYY", Category=AlbumCategory.Pop, Quantity=55, UnitPrice=12.49, ReleaseDate = new DateTime(2010, 7, 22)}
             };
             SelectedAlbum = Albums[0];
         }
@@ -162,6 +162,7 @@ namespace WPHFramework1
             to.Quantity = from.Quantity;
             to.UnitPrice = from.UnitPrice;
             to.Category = from.Category;
+            to.ReleaseDate = from.ReleaseDate;
         }
     }
 }

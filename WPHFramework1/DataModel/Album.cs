@@ -26,7 +26,8 @@ namespace WPHFramework1
                     Title = this.Title,
                     Quantity = this.Quantity,
                     UnitPrice = this.UnitPrice,
-                    Category = this.Category 
+                    Category = this.Category,
+                    ReleaseDate = this.ReleaseDate 
                };
                return newInstance;
         }
@@ -86,6 +87,18 @@ namespace WPHFramework1
                 }
             }
         }
+
+        private DateTime _releaseDate;
+
+        public DateTime ReleaseDate
+        {
+            get { return _releaseDate; }
+            set {
+             _releaseDate = value;
+             NotifyOfPropertyChange(() => ReleaseDate);
+             }
+        }
+        
 
         public double Extension
         {
