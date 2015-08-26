@@ -27,7 +27,8 @@ namespace WPHFramework1
                     Quantity = this.Quantity,
                     UnitPrice = this.UnitPrice,
                     Category = this.Category,
-                    ReleaseDate = this.ReleaseDate 
+                    ReleaseDate = this.ReleaseDate,
+                    VendorId = this.VendorId 
                };
                return newInstance;
         }

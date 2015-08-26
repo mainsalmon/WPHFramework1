@@ -171,6 +171,7 @@ namespace WPHFramework1
             to.UnitPrice = from.UnitPrice;
             to.Category = from.Category;
             to.ReleaseDate = from.ReleaseDate;
+            to.VendorId = from.VendorId;
         }
 
         private ObservableCollection<Vendor> _vendors;
