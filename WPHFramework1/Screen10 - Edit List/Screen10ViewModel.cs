@@ -124,16 +124,12 @@ namespace WPHFramework1
 
         public void DoSave()
         {
-            Save();
+            // todo the actual save here
+
             SelectedAlbum = null;
             IsEditMode = false;
             _pendingChanges = null;
             _isNew = false;
-        }
-
-        private void Save()
-        {
-        
         }
 
         public void DoAddNew()
@@ -153,6 +149,8 @@ namespace WPHFramework1
 
         public void DoDelete()
         {
+            // todo the actual delete here
+
             Album selected = SelectedAlbum;
             SelectedAlbum = null;
             Albums.Remove(selected);

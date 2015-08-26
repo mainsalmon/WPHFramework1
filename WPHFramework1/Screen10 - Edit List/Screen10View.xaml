@@ -10,12 +10,14 @@
              d:DesignHeight="800" d:DesignWidth="900">
 
     <UserControl.Resources>
+
         <!-- support for binding combobox cell to enum values -->
         <ObjectDataProvider x:Key="CategoryEnumDataProvider" MethodName="GetValues" ObjectType="{x:Type System:Enum}">
             <ObjectDataProvider.MethodParameters>
                 <x:Type TypeName="local:AlbumCategory"/>
             </ObjectDataProvider.MethodParameters>
         </ObjectDataProvider>
+
     </UserControl.Resources>
 
     <Grid>
@@ -26,21 +28,21 @@
                    HorizontalAlignment="Center"
                    FontSize="20" Margin="0 0 0 20"/>
            
-            
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
+                <!-- List  -->
                 <ListView Grid.Row="0" Height="200"
-                ItemsSource="{Binding Albums}" 
-                x:Name="lsvAlbums"
-                SelectedItem="{Binding SelectedAlbum}"
-                Margin="5"
+                    ItemsSource="{Binding Albums}" 
+                    x:Name="lsvAlbums"
+                    SelectedItem="{Binding SelectedAlbum}"
+                    Margin="5"
                 
-                BorderThickness="0"
-                SelectedIndex="0"><!--Background="#DDD"-->
+                    BorderThickness="0"
+                    SelectedIndex="0"><!--Background="#DDD"-->
                     <ListView.View>
                         <GridView>
                             <GridViewColumn Width="300"  DisplayMemberBinding="{Binding Title}"
@@ -60,6 +62,8 @@
                         </GridView>
                     </ListView.View>
                 </ListView>
+
+                <!-- Details Editor  -->
                 <Grid Grid.Row="1">
 
                     <Grid.Resources>
@@ -124,15 +128,15 @@
 
                     <Label Content="Price:" Grid.Row="3" Grid.Column="0" />
                     <controls:NumericUpDown Grid.Row="3" Grid.Column="1"
-                                    Value="{Binding SelectedAlbum.UnitPrice}" 
-                                    StringFormat="C" 
-                                    Minimum="0" 
-                                    HideUpDownButtons="False" />
+                            Value="{Binding SelectedAlbum.UnitPrice}" 
+                            StringFormat="C" 
+                            Minimum="0" 
+                            HideUpDownButtons="False" />
 
                     <Label Content="Released:" Grid.Row="4" Grid.Column="0" />
                     <DatePicker Grid.Row="4" Grid.Column="1" 
-                                    SelectedDate="{Binding SelectedAlbum.ReleaseDate}" 
-                                     />
+                            SelectedDate="{Binding SelectedAlbum.ReleaseDate}" 
+                            />
 
                      <!-- Example of combo box whereby we capture and store id values but combobox displays id + name -->
                     <Label Content="Vendor:" Grid.Row="5" Grid.Column="0" />
@@ -154,14 +158,9 @@
                   
                     <!-- Buttons -->
                     <Button x:Name="DoEditMode" Grid.Row="0" Grid.Column="2" Content="Edit" Width="100" />
-
-                    <Button x:Name="DoCancel"  Grid.Row="1" Grid.Column="2" Content="Cancel" Width="100"
-            IsEnabled="{Binding IsEditMode}"/>
-                    <Button x:Name="DoSave"  Grid.Row="2" Grid.Column="2" Content="Save" Width="100"
-            IsEnabled="{Binding IsEditMode}"/>
-
+                    <Button x:Name="DoCancel"  Grid.Row="1" Grid.Column="2" Content="Cancel" Width="100" IsEnabled="{Binding IsEditMode}"/>
+                    <Button x:Name="DoSave"  Grid.Row="2" Grid.Column="2" Content="Save" Width="100"  IsEnabled="{Binding IsEditMode}"/>
                     <Button x:Name="DoDelete"  Grid.Row="4" Grid.Column="2" Content="Delete" Width="100" />
-
 
                 </Grid>
             </Grid>
