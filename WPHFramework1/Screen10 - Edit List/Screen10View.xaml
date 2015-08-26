@@ -55,6 +55,8 @@
                                     Header="Extension"  />
                             <GridViewColumn Width="100"  DisplayMemberBinding="{Binding ReleaseDate, StringFormat='d' }"
                                     Header="Released"  />
+                            <GridViewColumn Width="100"  DisplayMemberBinding="{Binding VendorId}"
+                                    Header="Vendor Id" />
                         </GridView>
                     </ListView.View>
                 </ListView>
@@ -96,6 +98,7 @@
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="1*"/>
@@ -131,6 +134,24 @@
                                     SelectedDate="{Binding SelectedAlbum.ReleaseDate}" 
                                      />
 
+                     <!-- Example of combo box whereby we capture and store id values but combobox displays id + name -->
+                    <Label Content="Vendor:" Grid.Row="5" Grid.Column="0" />
+                    <ComboBox  Grid.Row="5" Grid.Column="1"
+                            ItemsSource="{Binding Vendors}"
+                            SelectedValuePath="Id"
+                            SelectedValue="{Binding Path=SelectedAlbum.VendorId}" > 
+                        <!--Alternatively, just use DisplayMemberPath="Name" instead of the following template -->
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock>
+                                    <Run Text="{Binding Path=Id}"/>
+                                    <Run Text=" - "/>
+                                    <Run Text="{Binding Path=Name}" />
+                                </TextBlock>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                  
                     <!-- Buttons -->
                     <Button x:Name="DoEditMode" Grid.Row="0" Grid.Column="2" Content="Edit" Width="100" />
 

@@ -107,6 +107,17 @@ namespace WPHFramework1
                 return UnitPrice * Quantity;
             }
         }
+
+        private string _vendorId;
+        public string VendorId
+        {
+            get { return _vendorId; }
+            set {
+                _vendorId = value;
+                NotifyOfPropertyChange(() => VendorId);
+              }
+        }
+        
    
     }
 }

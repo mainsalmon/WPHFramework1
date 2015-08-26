@@ -17,12 +17,22 @@ namespace WPHFramework1
         protected override void OnInitialize()
         {
             base.OnInitialize();
+
+            _vendors = new ObservableCollection<Vendor>()
+            {
+                new Vendor(){Id="FRY", Name="Fry's"},
+                new Vendor(){Id="AMZ", Name="Amazon"},
+                new Vendor(){Id="FM", Name="Fred Meyer"}
+            };
+            
+
             _albums = new ObservableCollection<Album>()
             {
-                new Album(){Title = "XXXX", Category=AlbumCategory.Country, Quantity=3, UnitPrice=8.95, ReleaseDate = new DateTime(2012, 3, 14)},
-                new Album(){Title = "YYYY", Category=AlbumCategory.Pop, Quantity=55, UnitPrice=12.49, ReleaseDate = new DateTime(2010, 7, 22)}
+                new Album(){Title = "XXXX", Category=AlbumCategory.Country, Quantity=3, UnitPrice=8.95, ReleaseDate = new DateTime(2012, 3, 14), VendorId="FRY"},
+                new Album(){Title = "YYYY", Category=AlbumCategory.Pop, Quantity=55, UnitPrice=12.49, ReleaseDate = new DateTime(2010, 7, 22), VendorId="AMZ"}
             };
             SelectedAlbum = Albums[0];
+
         }
 
         private ObservableCollection<Album> _albums;
@@ -164,5 +174,19 @@ namespace WPHFramework1
             to.Category = from.Category;
             to.ReleaseDate = from.ReleaseDate;
         }
+
+        private ObservableCollection<Vendor> _vendors;
+
+        public ObservableCollection<Vendor> Vendors
+        {
+            get {
+             return _vendors; }
+            set {
+             _vendors = value;
+             NotifyOfPropertyChange(() => Vendors);
+             
+             }
+        }
+        
     }
 }

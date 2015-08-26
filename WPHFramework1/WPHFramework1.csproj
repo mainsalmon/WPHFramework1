@@ -85,6 +85,7 @@
     <Compile Include="Converters\BoolFalseToVisibilityConverter.cs" />
     <Compile Include="Converters\BoolTrueToVisibilityConverter.cs" />
     <Compile Include="Converters\EnumToBooleanConverter.cs" />
+    <Compile Include="DataModel\Vendor.cs" />
     <Compile Include="MyAutofacBootstrapper.cs" />
     <Compile Include="BaseClasses\FlyoutBaseViewModel.cs" />
     <Compile Include="BaseClasses\ValidatingModelBase.cs" />
