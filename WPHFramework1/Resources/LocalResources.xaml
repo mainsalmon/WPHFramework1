@@ -17,6 +17,6 @@
         
     </Path>
     <!--  Color pallet -->
-    <SolidColorBrush x:Key="lightForegroundBrush" Color="Green"/>
+    <SolidColorBrush x:Key="lightForegroundBrush" Color="#FFF"/>
     <SolidColorBrush x:Key="darkForegroundBrush" Color="#DDD"/>
 </ResourceDictionary>
