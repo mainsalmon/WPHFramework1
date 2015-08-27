@@ -18,38 +18,7 @@ namespace WPHFramework1
 
     public class Album : PropertyChangedBase
     {
-
-        public static void CopyValues(Album from, Album to)
-        {
-            //to.Title = from.Title;
-            //to.Quantity = from.Quantity;
-            //to.UnitPrice = from.UnitPrice;
-            //to.Category = from.Category;
-            //to.ReleaseDate = from.ReleaseDate;
-            //to.VendorId = from.VendorId;
-
-            Type type = from.GetType();
-            System.Reflection.PropertyInfo[] allProperties = type.GetProperties();
-
-            foreach (System.Reflection.PropertyInfo property in allProperties)
-            {
-                if (property.CanWrite)
-                {
-                    property.SetValue(to, property.GetValue(from, null), null);
-                }
-            }
-
-        }
-
-        public Album Clone()
-        {
-               Album newInstance = new Album();
-
-               CopyValues(this, newInstance);
-
-               return newInstance;
-        }
-
+       
         private int _quantity;
         public int Quantity
         {
@@ -107,7 +76,6 @@ namespace WPHFramework1
         }
 
         private DateTime _releaseDate;
-
         public DateTime ReleaseDate
         {
             get { return _releaseDate; }
@@ -135,7 +103,36 @@ namespace WPHFramework1
                 NotifyOfPropertyChange(() => VendorId);
               }
         }
-        
-   
+
+        #region Plumbing for reverting changes
+        // This stuff could move to a IRevertable interface and/or a DataModelBase class that derives from PropertyChangedBase
+
+        public static void CopyValues(Album from, Album to)
+        {
+            //to.Title = from.Title;
+            //to.Quantity = from.Quantity;
+            //etc via Reflection:
+
+            Type type = from.GetType();
+            System.Reflection.PropertyInfo[] allProperties = type.GetProperties();
+
+            foreach (System.Reflection.PropertyInfo property in allProperties)
+            {
+                if (property.CanWrite) //TODO: this could be made more flexible by honoring a custom 'DoNotCopy' attribute
+                {
+                    property.SetValue(to, property.GetValue(from, null), null);
+                }
+            }
+        }
+
+        public Album Clone()
+        {
+            // Assumes this is a flat, data model object
+            Album newInstance = new Album();
+            CopyValues(this, newInstance);
+            return newInstance;
+        }
+
+        #endregion Plumbing for reverting changes
     }
 }
