@@ -14,7 +14,9 @@
         <Path.LayoutTransform>
             <ScaleTransform ScaleX="0.75" ScaleY="0.75" />
         </Path.LayoutTransform>
-
+        
     </Path>
-
+    <!--  Color pallet -->
+    <SolidColorBrush x:Key="lightForegroundBrush" Color="White"/>
+    <SolidColorBrush x:Key="darkForegroundBrush" Color="#DDD"/>
 </ResourceDictionary>
