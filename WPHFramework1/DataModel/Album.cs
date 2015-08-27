@@ -19,17 +19,34 @@ namespace WPHFramework1
     public class Album : PropertyChangedBase
     {
 
+        public static void CopyValues(Album from, Album to)
+        {
+            //to.Title = from.Title;
+            //to.Quantity = from.Quantity;
+            //to.UnitPrice = from.UnitPrice;
+            //to.Category = from.Category;
+            //to.ReleaseDate = from.ReleaseDate;
+            //to.VendorId = from.VendorId;
+
+            Type type = from.GetType();
+            System.Reflection.PropertyInfo[] allProperties = type.GetProperties();
+
+            foreach (System.Reflection.PropertyInfo property in allProperties)
+            {
+                if (property.CanWrite)
+                {
+                    property.SetValue(to, property.GetValue(from, null), null);
+                }
+            }
+
+        }
+
         public Album Clone()
         {
-               Album newInstance = new Album()
-               {
-                    Title = this.Title,
-                    Quantity = this.Quantity,
-                    UnitPrice = this.UnitPrice,
-                    Category = this.Category,
-                    ReleaseDate = this.ReleaseDate,
-                    VendorId = this.VendorId 
-               };
+               Album newInstance = new Album();
+
+               CopyValues(this, newInstance);
+
                return newInstance;
         }
 

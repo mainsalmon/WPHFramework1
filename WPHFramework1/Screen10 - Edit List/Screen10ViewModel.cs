@@ -11,7 +11,7 @@ namespace WPHFramework1
     public class Screen10ViewModel : Screen
     {
 
-        private Album _pendingChanges;
+        private Album _originalValues;
         private bool _isNew;
 
         protected override void OnInitialize()
@@ -77,7 +77,7 @@ namespace WPHFramework1
                     if (SelectedAlbum != null && _isEditMode)
                     {
                         // clone so we can undo if they cancel
-                        _pendingChanges = SelectedAlbum.Clone();
+                        _originalValues = SelectedAlbum.Clone();
                         
                     }
                    
@@ -113,8 +113,8 @@ namespace WPHFramework1
             }
             else
             {
-                CopyValues(_pendingChanges, SelectedAlbum); // put the values back
-                _pendingChanges = null;
+                Album.CopyValues(_originalValues, SelectedAlbum); // revert to original values
+                _originalValues = null;
             }
             
             SelectedAlbum = null;
@@ -128,7 +128,7 @@ namespace WPHFramework1
 
             SelectedAlbum = null;
             IsEditMode = false;
-            _pendingChanges = null;
+            _originalValues = null;
             _isNew = false;
         }
 
@@ -163,16 +163,6 @@ namespace WPHFramework1
         }
 
         #endregion Actions
-
-        private void CopyValues(Album from, Album to)
-        {
-            to.Title = from.Title;
-            to.Quantity = from.Quantity;
-            to.UnitPrice = from.UnitPrice;
-            to.Category = from.Category;
-            to.ReleaseDate = from.ReleaseDate;
-            to.VendorId = from.VendorId;
-        }
 
         private ObservableCollection<Vendor> _vendors;
 
