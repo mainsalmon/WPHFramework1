@@ -18,9 +18,9 @@
         
     </Path>
 
-    <Path x:Key="hamburgerIcon"
+    <Path x:Key="hamburgerIconPath"
                 Stretch="Uniform" 
-                Fill="#DDD"                 
+                Fill="White"    
                 SnapsToDevicePixels="True" 
                  Data="M 57,21L 57,23L 19,23L 19,21L 57,21 Z 
                         M 57,30L 57,28L 19,28L 19,30L 57,30 Z 
@@ -32,6 +32,37 @@
         </Path.LayoutTransform>
 
     </Path>
+    <!--Background="{DynamicResource AccentColorBrush}"-->
+
+    <Style x:Key="burgerBtnStyle" TargetType="{x:Type Button}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Grid Background="{TemplateBinding Background}" >
+                        <Path x:Name="burgerPath" Margin="3"
+                            Stretch="Uniform" 
+                            Fill="White"    
+                            SnapsToDevicePixels="False" 
+                             Data="M 57,21L 57,23L 19,23L 19,21L 57,21 Z 
+                                    M 57,30L 57,28L 19,28L 19,30L 57,30 Z 
+                                    M 57,37L 57,35L 19,35L 19,37L 57,37 Z  
+                                 " >
+                        </Path>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter TargetName="burgerPath" Property="Stroke" Value="#DDD"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="true">
+                            <Setter TargetName="burgerPath" Property="Stroke" Value="#FFF"/>
+                        </Trigger>
+
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+    </Style>
 
     <!--  Put local resources here -->
 

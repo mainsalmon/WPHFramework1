@@ -21,6 +21,15 @@
 
     </Controls:MetroWindow.RightWindowCommands>
 
+    <Controls:MetroWindow.LeftWindowCommands>
+        <Controls:WindowCommands >
+            <Button Style="{StaticResource burgerBtnStyle}" 
+            Width="25" Height="25" Background="Transparent"  BorderBrush="Transparent"  Margin="5 0 2 0" 
+            cal:Message.Attach="[Event Click] = [Action ShowSearchFlyout($view)]"
+            />
+        </Controls:WindowCommands>
+    </Controls:MetroWindow.LeftWindowCommands>
+
     <Controls:MetroWindow.Flyouts>
         <Controls:FlyoutsControl>
             <Controls:Flyout x:Name="settingsFlyout" 
@@ -48,8 +57,23 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        
-        <Menu Grid.Row="0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.Resources>
+         
+        </Grid.Resources>
+
+        <Button Grid.Row="0" Grid.Column="0" 
+            Style="{StaticResource burgerBtnStyle}" 
+            Background="{DynamicResource AccentColorBrush2}" 
+            Width="25" Height="25" BorderBrush="Transparent"  
+            Margin="5 2 2 0" 
+            cal:Message.Attach="[Event Click] = [Action ShowSearchFlyout($view)]"
+            />
+
+        <Menu Grid.Row="0" Grid.Column="1">
             <Menu.Resources>
                 <Style TargetType="MenuItem">
                     <Setter Property="Foreground" Value="{DynamicResource AccentColorBrush}"/>
@@ -69,10 +93,10 @@
             <MenuItem Header="screen 10" x:Name="ShowScreen10" />
         </Menu>
         
-        <Controls:TransitioningContentControl Grid.Row="1" x:Name="ActiveItem" Margin="5" Transition="RightReplace" />
+        <Controls:TransitioningContentControl Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  x:Name="ActiveItem" Margin="5" Transition="RightReplace" />
         
         <!-- Status Bar -->
-        <Border Grid.Row="2" Height="20" Background="{DynamicResource AccentColorBrush}" >
+        <Border Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Height="20" Background="{DynamicResource AccentColorBrush}" >
             <Grid HorizontalAlignment="Stretch" VerticalAlignment="Center">
                 <Grid.Resources>
                     
