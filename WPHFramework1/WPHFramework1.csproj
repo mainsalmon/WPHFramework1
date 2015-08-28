@@ -137,14 +137,14 @@
       <DependentUpon>Screen9View.xaml</DependentUpon>
     </Compile>
     <Compile Include="Screen9 - MahApps TabControl\Screen9ViewModel.cs" />
-    <Compile Include="Search - Flyout\SearchViewModel.cs" />
-    <Compile Include="Search - Flyout\SearchView.xaml.cs">
+    <Compile Include="Flyout - Search\SearchViewModel.cs" />
+    <Compile Include="Flyout - Search\SearchView.xaml.cs">
       <DependentUpon>SearchView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Settings - Flyout\SettingsView.xaml.cs">
+    <Compile Include="Flyout - Settings\SettingsView.xaml.cs">
       <DependentUpon>SettingsView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Settings - Flyout\SettingsViewModel.cs" />
+    <Compile Include="Flyout - Settings\SettingsViewModel.cs" />
     <Compile Include="Shell - Main Menu\ShellViewModel.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
@@ -199,11 +199,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Search - Flyout\SearchView.xaml">
+    <Page Include="Flyout - Search\SearchView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Settings - Flyout\SettingsView.xaml">
+    <Page Include="Flyout - Settings\SettingsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
