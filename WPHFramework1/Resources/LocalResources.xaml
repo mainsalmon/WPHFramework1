@@ -1,20 +1,39 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <Path x:Key="hamburgerIcon"
+    <Path x:Key="stackIcon"
                 Stretch="Uniform" 
                 Fill="#DDD"                 
                 SnapsToDevicePixels="True" 
-                Data="M 57.0079,21.0029L 57.0079,23.0034L 19.0027,23.0034L 19.0027,21.0029L 57.0079,21.0029 Z 
+                    Data="M 57.0079,21.0029L 57.0079,23.0034L 19.0027,23.0034L 19.0027,21.0029L 57.0079,21.0029 Z 
                     M 57.0079,27.0038L 57.0079,29.0042L 19.0027,29.0042L 19.0027,27.0038L 57.0079,27.0038 Z 
-                    M 57.008,33.0046L 57.008,35.005L 19.0027,35.0052L 19.0027,33.0047L 57.008,33.0046 Z 
+                    M 57.008,33.0046L 57.008,35.040L 19.0027,35.040L 19.0027,33.0047L 57.008,33.0046 Z 
                     M 57.0079,39.0054L 57.0079,41.0059L 19.0027,41.0059L 19.0027,39.0054L 57.0079,39.0054 Z 
                     M 57.008,45.0064L 57.008,47.0068L 19.0027,47.0068L 19.0027,45.0064L 57.008,45.0064 Z
                      " >
+
 
         <Path.LayoutTransform>
             <ScaleTransform ScaleX="0.75" ScaleY="0.75" />
         </Path.LayoutTransform>
         
+    </Path>
+
+    <Path x:Key="hamburgerIcon"
+                Stretch="Uniform" 
+                Fill="#DDD"                 
+                SnapsToDevicePixels="True" 
+                 Data="M 57.0079,21.0029L 57.0079,23.0034L 19.0027,23.0034L 19.0027,21.0029L 57.0079,21.0029 Z 
+                    M 57.0079,27.0038L 57.0079,29.0042L 19.0027,29.0042L 19.0027,27.0038L 57.0079,27.0038 Z 
+                    M 57.008,33.0046L 57.008,35.040L 19.0027,35.040L 19.0027,33.0047L 57.008,33.0046 Z 
+                  
+                     " >
+
+     
+
+        <Path.LayoutTransform>
+            <ScaleTransform ScaleX="0.75" ScaleY="0.75" />
+        </Path.LayoutTransform>
+
     </Path>
 
     <!--  Put local resources here -->
