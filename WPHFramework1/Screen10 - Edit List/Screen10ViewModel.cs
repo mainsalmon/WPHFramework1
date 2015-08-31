@@ -24,15 +24,40 @@ namespace WPHFramework1
                 new Vendor(){Id="AMZ", Name="Amazon"},
                 new Vendor(){Id="FM", Name="Fred Meyer"}
             };
-            
 
-            _albums = new ObservableCollection<Album>()
-            {
-                new Album(){Title = "XXXX", Category=AlbumCategory.Country, Quantity=3, UnitPrice=8.95, ReleaseDate = new DateTime(2012, 3, 14), VendorId="FRY"},
-                new Album(){Title = "YYYY", Category=AlbumCategory.Pop, Quantity=55, UnitPrice=12.49, ReleaseDate = new DateTime(2010, 7, 22), VendorId="AMZ"}
-            };
+
+            _albums = new ObservableCollection<Album>();
+
+            _albums.Add(new Album(1) { Title = "XXXX", Category = AlbumCategory.Country, Quantity = 3, UnitPrice = 8.95, ReleaseDate = new DateTime(2012, 3, 14), VendorId = "FRY" });
+            _albums.Add(new Album(2) { Title = "YYYY", Category = AlbumCategory.Pop, Quantity = 55, UnitPrice = 12.49, ReleaseDate = new DateTime(2010, 7, 22), VendorId = "AMZ" });
+
             SelectedAlbum = Albums[0];
 
+            // Test the repository and json backing
+            // json files can be intially added via the 'add' button, then 'save'
+            JsonRepository<Album> repo = new JsonRepository<Album>();
+
+           // int nextID = repo.GetNextId();
+
+            //var rslt = repo.SearchFor(a => a.VendorId == "FM");
+            //if (rslt != null)
+            //{
+            //    foreach (var a in rslt)
+            //    {
+            //        _albums.Add(a);
+            //    }
+            //}
+
+            //Album a3 = repo.GetById(3);
+            //if (a3 != null)
+            //{
+            //    _albums.Add(a3);
+            //}
+
+            //var fromFiles = repo.GetAll();
+            //_albums = new ObservableCollection<Album>(fromFiles);
+
+         
         }
 
         private ObservableCollection<Album> _albums;
@@ -124,17 +149,27 @@ namespace WPHFramework1
 
         public void DoSave()
         {
-            // todo the actual save here
+            int i = SelectedAlbum.ID;
+
+            // the actual save to local folder of json files
+            JsonRepository<Album> repo = new JsonRepository<Album>();
+            repo.Save(SelectedAlbum);
 
             SelectedAlbum = null;
             IsEditMode = false;
             _originalValues = null;
             _isNew = false;
+
         }
 
         public void DoAddNew()
         {
-            Album newAlbum = new Album() {Title = "(new)"};
+            int nextId = Albums.OrderBy(a => a.ID).Last().ID + 1; 
+            // TODO: if using repo:
+            // JsonRepository<Album> repo = new JsonRepository<Album>();
+            // int nextId2 = repo.GetNextId();
+
+            Album newAlbum = new Album(nextId) {Title = "(new)"};
             Albums.Add(newAlbum);
             SelectedAlbum = newAlbum;
             _isNew = true;

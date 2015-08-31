@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.Serialization;
 
 namespace WPHFramework1
 {
@@ -16,10 +17,25 @@ namespace WPHFramework1
         Country  
     }
 
-    public class Album : PropertyChangedBase
+    [DataContract]
+    public class Album : PropertyChangedBase, IEntity
     {
-       
+
+        private int _id;
+        [DataMember]
+        public int ID
+        {
+            get { return _id; }
+            set { _id = value; }
+        }
+
+        public Album(int id)
+        {
+            ID = id;
+        }
+
         private int _quantity;
+        [DataMember]
         public int Quantity
         {
             get { return _quantity; }
@@ -34,6 +50,7 @@ namespace WPHFramework1
         }
 
         private string _title;
+        [DataMember]
         public string Title
         {
             get { return _title; }
@@ -48,6 +65,7 @@ namespace WPHFramework1
         }
 
         private double _unitPrice;
+        [DataMember]
         public double UnitPrice
         {
             get { return _unitPrice; }
@@ -63,6 +81,7 @@ namespace WPHFramework1
         }
 
         private AlbumCategory _category;
+        [DataMember]
         public AlbumCategory Category
         {
             get { return _category; }
@@ -76,6 +95,7 @@ namespace WPHFramework1
         }
 
         private DateTime _releaseDate;
+        [DataMember]
         public DateTime ReleaseDate
         {
             get { return _releaseDate; }
@@ -95,6 +115,7 @@ namespace WPHFramework1
         }
 
         private string _vendorId;
+        [DataMember]
         public string VendorId
         {
             get { return _vendorId; }
@@ -128,11 +149,13 @@ namespace WPHFramework1
         public Album Clone()
         {
             // Assumes this is a flat, data model object
-            Album newInstance = new Album();
+            Album newInstance = new Album(this.ID + 10000000);
             CopyValues(this, newInstance);
             return newInstance;
         }
 
         #endregion Plumbing for reverting changes
+
+     
     }
 }

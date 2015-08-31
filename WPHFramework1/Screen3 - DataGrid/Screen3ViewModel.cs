@@ -15,8 +15,8 @@ namespace WPHFramework1
             base.OnInitialize();
             _albums = new ObservableCollection<Album>()
             {
-                new Album(){Title = "XXXX", Category=AlbumCategory.Country, Quantity=3, UnitPrice=8.95},
-                new Album(){Title = "YYYY", Category=AlbumCategory.Pop, Quantity=55, UnitPrice=12.49}
+                new Album(1){Title = "XXXX", Category=AlbumCategory.Country, Quantity=3, UnitPrice=8.95},
+                new Album(2){Title = "YYYY", Category=AlbumCategory.Pop, Quantity=55, UnitPrice=12.49}
             };
         }
 

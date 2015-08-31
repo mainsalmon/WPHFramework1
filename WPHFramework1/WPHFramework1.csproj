@@ -56,6 +56,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Windows.Controls.DataVisualization.Toolkit, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Windows.Controls.DataVisualization.Toolkit.4.0.0.0\lib\net40-Client\System.Windows.Controls.DataVisualization.Toolkit.dll</HintPath>
       <Private>True</Private>
@@ -86,11 +87,14 @@
     <Compile Include="Converters\BoolTrueToVisibilityConverter.cs" />
     <Compile Include="Converters\EnumToBooleanConverter.cs" />
     <Compile Include="DataModel\Vendor.cs" />
+    <Compile Include="Interfaces\IEntity.cs" />
+    <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="MyAutofacBootstrapper.cs" />
     <Compile Include="BaseClasses\FlyoutBaseViewModel.cs" />
     <Compile Include="BaseClasses\ValidatingModelBase.cs" />
     <Compile Include="Converters\FlipBooleanConverter.cs" />
     <Compile Include="Interfaces\IShell.cs" />
+    <Compile Include="Repository\JsonRepository.cs" />
     <Compile Include="Screen1 - Dialogs\Screen1View.xaml.cs">
       <DependentUpon>Screen1View.xaml</DependentUpon>
     </Compile>
