@@ -8,18 +8,15 @@ using System.Runtime.Serialization;
 
 namespace WPHFramework1
 {
-
-    public enum AlbumCategory
-    {
-        Jazz,
-        Rock,
-        Pop,
-        Country  
-    }
-
     [DataContract]
     public class Album : PropertyChangedBase, IEntity
     {
+        public Album(int id)
+        {
+            ID = id;
+        }
+
+        #region Properties
 
         private int _id;
         [DataMember]
@@ -27,11 +24,6 @@ namespace WPHFramework1
         {
             get { return _id; }
             set { _id = value; }
-        }
-
-        public Album(int id)
-        {
-            ID = id;
         }
 
         private int _quantity;
@@ -105,7 +97,6 @@ namespace WPHFramework1
              }
         }
         
-
         public double Extension
         {
             get
@@ -125,11 +116,14 @@ namespace WPHFramework1
               }
         }
 
+        #endregion Properties
+
         #region Plumbing for reverting changes
         // This stuff could move to a IRevertable interface and/or a DataModelBase class that derives from PropertyChangedBase
 
         public static void CopyValues(Album from, Album to)
         {
+            // Essentially, do this stuff via reflection:
             //to.Title = from.Title;
             //to.Quantity = from.Quantity;
             //etc via Reflection:
@@ -146,10 +140,14 @@ namespace WPHFramework1
             }
         }
 
+        /// <summary>
+        /// Clone the object as a means of caching the current values to allow changes to be reverted on 'Cancel'
+        /// </summary>
         public Album Clone()
         {
             // Assumes this is a flat, data model object
-            Album newInstance = new Album(this.ID + 10000000);
+            int ticks = (int)DateTime.Now.Ticks * -1; // hack to get a fairly unique integer; the clone isn't going to get saved so this shouldn't matter
+            Album newInstance = new Album(ticks);
             CopyValues(this, newInstance);
             return newInstance;
         }

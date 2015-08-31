@@ -87,6 +87,7 @@
     <Compile Include="Converters\BoolTrueToVisibilityConverter.cs" />
     <Compile Include="Converters\EnumToBooleanConverter.cs" />
     <Compile Include="DataModel\Vendor.cs" />
+    <Compile Include="Enums\Enums.cs" />
     <Compile Include="Interfaces\IEntity.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="MyAutofacBootstrapper.cs" />
