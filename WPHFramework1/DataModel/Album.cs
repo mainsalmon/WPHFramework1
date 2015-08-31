@@ -123,11 +123,7 @@ namespace WPHFramework1
 
         public static void CopyValues(Album from, Album to)
         {
-            // Essentially, do this stuff via reflection:
-            //to.Title = from.Title;
-            //to.Quantity = from.Quantity;
-            //etc via Reflection:
-
+            // Use reflection to shuttle the property values from source to destination Album instances
             Type type = from.GetType();
             System.Reflection.PropertyInfo[] allProperties = type.GetProperties();
 

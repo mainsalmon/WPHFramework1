@@ -93,7 +93,6 @@ namespace WPHFramework1 {
 
         #endregion Settings Flyout
 
-
         #region Search Flyout
 
         public SearchViewModel SearchVM
