@@ -32,31 +32,6 @@ namespace WPHFramework1
             _albums.Add(new Album(2) { Title = "YYYY", Category = AlbumCategory.Pop, Quantity = 55, UnitPrice = 12.49, ReleaseDate = new DateTime(2010, 7, 22), VendorId = "AMZ" });
 
             SelectedAlbum = Albums[0];
-
-            // Test the repository and json backing
-            // json files can be intially added via the 'add' button, then 'save'
-            JsonRepository<Album> repo = new JsonRepository<Album>();
-
-           // int nextID = repo.GetNextId();
-
-            //var rslt = repo.SearchFor(a => a.VendorId == "FM");
-            //if (rslt != null)
-            //{
-            //    foreach (var a in rslt)
-            //    {
-            //        _albums.Add(a);
-            //    }
-            //}
-
-            //Album a3 = repo.GetById(3);
-            //if (a3 != null)
-            //{
-            //    _albums.Add(a3);
-            //}
-
-            //var fromFiles = repo.GetAll();
-            //_albums = new ObservableCollection<Album>(fromFiles);
-
          
         }
 

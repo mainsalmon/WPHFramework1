@@ -12,6 +12,7 @@ namespace WPHFramework1
 
     /// <summary>
     /// Persist data in local json files named using the id value in folders named with the plural of the entity name
+    /// This approach, including the SearchFor() works well for a few hundred records in a single-user use-case.
     /// </summary>
     public class JsonRepository<T> : IRepository<T> where T : IEntity
     {
@@ -112,7 +113,7 @@ namespace WPHFramework1
             return entity;
         }
 
-        private string MakeFullPath(int id)
+        public string MakeFullPath(int id)
         {
             return string.Format("{0}{1}.json", _folderPath, id);
         }
@@ -129,5 +130,12 @@ namespace WPHFramework1
 
             return max + 1;
         }
+
+        // To aid with testing
+        public string FolderPath
+        {
+            get { return _folderPath;}
+        }
+       
     }
 }
